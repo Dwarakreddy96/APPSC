@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>సింధు లోయ నాగరికత — APPSC టైటన్ మాస్టర్‌క్లాస్ | తెలుగు మాధ్యమం</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@300;400;500;600;700;900&family=Noto+Sans+Telugu:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0b08; --surf:#141109; --card:#1a1508; --card2:#201b0a;
+  --border:#2a2210; --border2:#3a3018; --border3:#4a4022;
+  --copper:#d4763a; --copper2:#b05a22; --copper3:#6b3610;
+  --gold:#e8c547; --amber:#f59e0b; --gold2:#b8952a;
+  --teal:#2dd4bf; --teal2:#0f766e; --teal3:#042f2e;
+  --green:#86efac; --green2:#16a34a;
+  --red:#fca5a5; --red2:#dc2626;
+  --blue:#93c5fd; --blue2:#2563eb;
+  --purple:#c4b5fd; --purple2:#7c3aed;
+  --cream:#f0ead6; --cream2:#d4c99a; --muted:#7a6e50; --dim:#3d3520;
+  --copper-bg:rgba(212,118,58,.08); --copper-bg2:rgba(212,118,58,.15);
+  --gold-bg:rgba(232,197,71,.07); --gold-bg2:rgba(232,197,71,.13);
+  --teal-bg:rgba(45,212,191,.07); --green-bg:rgba(134,239,172,.07);
+  --red-bg:rgba(252,165,165,.07); --blue-bg:rgba(147,197,253,.07);
+  --purple-bg:rgba(196,181,253,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--cream);font-family:'Noto Sans Telugu','Noto Sans',sans-serif;
+  line-height:1.9;min-height:100vh;overflow-x:hidden}
+
+/* terracotta seal texture overlay */
+body::before{content:'';position:fixed;inset:0;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 20% 10%, rgba(212,118,58,.04) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 80% 90%, rgba(232,197,71,.03) 0%, transparent 50%),
+    linear-gradient(rgba(212,118,58,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,118,58,.02) 1px,transparent 1px);
+  background-size:100% 100%,100% 100%,48px 48px,48px 48px;
+  pointer-events:none;z-index:0}
+
+/* progress bar */
+#pgbar{position:fixed;top:0;left:0;height:3px;width:0%;z-index:1000;
+  background:linear-gradient(90deg,var(--copper),var(--gold),var(--teal),var(--copper));
+  background-size:200%;animation:shimmer 3s linear infinite;transition:width .08s}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+
+/* TOP NAV */
+#topnav{position:fixed;top:3px;left:0;right:0;z-index:999;
+  background:rgba(13,11,8,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border2);padding:5px 0;
+  transform:translateY(-100%);transition:transform .3s ease}
+#topnav.on{transform:translateY(0)}
+.tnav-inner{max-width:1100px;margin:0 auto;padding:0 14px;
+  display:flex;align-items:center;gap:5px;overflow-x:auto;scrollbar-width:none}
+.tnav-inner::-webkit-scrollbar{display:none}
+.tnav-brand{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--copper);
+  letter-spacing:2px;white-space:nowrap;flex-shrink:0;padding-right:10px;
+  border-right:1px solid var(--border2);text-transform:uppercase}
+.tnav-link{font-size:9.5px;color:var(--muted);text-decoration:none;white-space:nowrap;
+  padding:3px 8px;border-radius:4px;flex-shrink:0;transition:all .15s;
+  font-family:'Noto Sans Telugu',sans-serif}
+.tnav-link:hover{color:var(--copper);background:var(--copper-bg)}
+
+/* WRAP */
+.wrap{position:relative;z-index:1;max-width:1050px;margin:0 auto;padding:0 18px 120px}
+
+/* HERO */
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--border2);text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(212,118,58,.09),transparent);
+  pointer-events:none}
+.hero-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--copper2);margin-bottom:16px;display:block}
+.hero-main{font-family:'Noto Serif Telugu',serif;font-size:clamp(40px,8vw,82px);
+  font-weight:900;line-height:1.0;margin-bottom:8px;color:var(--cream)}
+.hero-main .hl{color:var(--copper)}
+.hero-eng{font-size:clamp(13px,2vw,17px);color:var(--muted);margin-bottom:6px;
+  font-family:'JetBrains Mono',monospace;letter-spacing:2px}
+.hero-sub{font-family:'Noto Serif Telugu',serif;font-size:clamp(14px,2vw,18px);
+  color:var(--cream2);font-style:italic;margin-bottom:26px;line-height:1.6}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:22px}
+.tag{display:flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;
+  font-size:11px;font-weight:600;border:1px solid;letter-spacing:.3px;
+  font-family:'Noto Sans Telugu',sans-serif}
+.tag.copper{border-color:rgba(212,118,58,.35);color:var(--copper);background:var(--copper-bg)}
+.tag.gold{border-color:rgba(232,197,71,.3);color:var(--gold);background:var(--gold-bg)}
+.tag.teal{border-color:rgba(45,212,191,.3);color:var(--teal);background:var(--teal-bg)}
+.tag.green{border-color:rgba(134,239,172,.3);color:var(--green);background:var(--green-bg)}
+.tag.red{border-color:rgba(252,165,165,.3);color:var(--red);background:var(--red-bg)}
+.tag.blue{border-color:rgba(147,197,253,.3);color:var(--blue);background:var(--blue-bg)}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+  gap:10px;margin-top:26px;max-width:720px;margin-left:auto;margin-right:auto}
+.hstat{background:var(--card);border:1px solid var(--border2);border-radius:10px;
+  padding:12px 10px;text-align:center;transition:border-color .2s}
+.hstat:hover{border-color:var(--copper3)}
+.hstat-val{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;
+  color:var(--copper);display:block}
+.hstat-lbl{font-size:10px;color:var(--muted);margin-top:3px;display:block;
+  font-family:'Noto Sans Telugu',sans-serif;line-height:1.4}
+
+/* GURU VOICE BOX — unique element */
+.guru-card{background:linear-gradient(135deg,rgba(212,118,58,.06),rgba(212,118,58,.02));
+  border:1px solid rgba(212,118,58,.25);border-left:4px solid var(--copper);
+  border-radius:10px;padding:16px 18px;margin:14px 0;position:relative}
+.guru-card::before{content:'గురువుగారు చెప్తున్నారు';position:absolute;top:-9px;left:14px;
+  background:var(--copper2);color:#fff;font-family:'JetBrains Mono',monospace;font-size:8px;
+  font-weight:700;letter-spacing:1.5px;padding:2px 8px;border-radius:3px}
+.guru-text{font-size:13.5px;color:var(--cream);line-height:1.95;
+  font-family:'Noto Sans Telugu',sans-serif}
+.guru-text b{color:var(--copper);font-weight:700}
+.guru-text .g{color:var(--green);font-weight:600}
+.guru-text .r{color:var(--red);font-weight:600}
+.guru-text .t{color:var(--teal);font-weight:600}
+
+/* SOURCE BOX */
+.source-box{background:rgba(147,197,253,.06);border:1px solid rgba(147,197,253,.2);
+  border-left:4px solid var(--blue);border-radius:8px;padding:10px 14px;
+  margin:10px 0;font-size:12.5px;color:var(--cream2);line-height:1.7}
+.source-box::before{content:'తెలుగు అకాడమీ ఆధారం';display:block;
+  font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--blue);
+  letter-spacing:1.5px;margin-bottom:5px;font-weight:700}
+
+/* TOC */
+.toc-wrap{background:var(--card);border:1px solid var(--border2);border-radius:16px;
+  margin:30px 0;overflow:hidden}
+.toc-head{padding:15px 22px;border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;gap:10px;background:var(--copper-bg)}
+.toc-head-title{font-family:'Noto Serif Telugu',serif;font-size:17px;
+  color:var(--copper);font-weight:700}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0}
+.toc-item{padding:9px 22px;border-bottom:1px solid var(--border);
+  border-right:1px solid var(--border);display:flex;align-items:center;
+  gap:10px;text-decoration:none;transition:all .15s;cursor:pointer}
+.toc-item:hover{background:var(--copper-bg)}
+.toc-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--copper2);
+  width:26px;flex-shrink:0;font-weight:700}
+.toc-text{font-size:12px;color:var(--cream2);flex:1;font-family:'Noto Sans Telugu',sans-serif;line-height:1.4}
+.toc-icon{font-size:14px;flex-shrink:0}
+
+/* CHAPTER DIVIDERS */
+.ch-div{display:flex;align-items:center;gap:14px;margin:52px 0 26px}
+.ch-div-num{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;
+  color:var(--copper2);white-space:nowrap;text-transform:uppercase}
+.ch-div-line{flex:1;height:1px;background:linear-gradient(90deg,var(--copper3),transparent)}
+.ch-div-icon{font-size:22px;flex-shrink:0}
+
+/* SECTION CARDS */
+.scard{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  margin-bottom:20px;overflow:hidden;scroll-margin-top:60px}
+.scard.copper{border-color:rgba(212,118,58,.25);background:linear-gradient(160deg,var(--card),rgba(212,118,58,.03))}
+.scard.gold{border-color:rgba(232,197,71,.2);background:linear-gradient(160deg,var(--card),rgba(232,197,71,.03))}
+.scard.teal{border-color:rgba(45,212,191,.2);background:linear-gradient(160deg,var(--card),rgba(45,212,191,.03))}
+.scard.green{border-color:rgba(134,239,172,.2);background:linear-gradient(160deg,var(--card),rgba(134,239,172,.03))}
+.scard.red{border-color:rgba(252,165,165,.2);background:linear-gradient(160deg,var(--card),rgba(252,165,165,.03))}
+.scard.blue{border-color:rgba(147,197,253,.2);background:linear-gradient(160deg,var(--card),rgba(147,197,253,.03))}
+.scard.purple{border-color:rgba(196,181,253,.2);background:linear-gradient(160deg,var(--card),rgba(196,181,253,.03))}
+.scard-hd{padding:15px 22px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none;transition:background .15s}
+.scard-hd:hover{background:rgba(212,118,58,.04)}
+.scard-icon{font-size:21px;flex-shrink:0}
+.scard-title{font-family:'Noto Serif Telugu',serif;font-size:16px;font-weight:700;flex:1;line-height:1.35}
+.scard-title.copper{color:var(--copper)}
+.scard-title.gold{color:var(--gold)}
+.scard-title.teal{color:var(--teal)}
+.scard-title.green{color:var(--green)}
+.scard-title.red{color:var(--red)}
+.scard-title.blue{color:var(--blue)}
+.scard-title.purple{color:var(--purple)}
+.scard-toggle{font-size:16px;color:var(--muted);transition:transform .2s;flex-shrink:0}
+.scard-toggle.open{transform:rotate(180deg)}
+.scard-body{padding:22px;display:none}
+.scard-body.open{display:block}
+
+/* SUB HEADINGS */
+.sub-hd{font-family:'Noto Serif Telugu',serif;font-size:15px;font-weight:700;
+  color:var(--copper);margin-bottom:12px;padding-bottom:6px;
+  border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.sub-hd2{font-size:12px;font-weight:700;color:var(--cream2);margin-bottom:8px;margin-top:16px;
+  text-transform:uppercase;letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+
+/* PROSE */
+.prose{font-size:14px;line-height:2;color:var(--cream2);
+  font-family:'Noto Sans Telugu',sans-serif}
+.prose b,.prose strong{color:var(--copper);font-weight:700}
+.prose em{color:var(--teal);font-style:normal}
+.kw{color:var(--copper);font-weight:700}
+.kwg{color:var(--green);font-weight:600}
+.kwr{color:var(--red);font-weight:600}
+.kwt{color:var(--teal);font-weight:600}
+.kwb{color:var(--blue);font-weight:600}
+.kwp{color:var(--purple);font-weight:600}
+
+/* HIGHLIGHT BOXES */
+.hbox{border-radius:10px;padding:14px 18px;margin:12px 0;font-size:13.5px;line-height:1.85;
+  font-family:'Noto Sans Telugu',sans-serif}
+.hbox.copper{background:var(--copper-bg2);border-left:4px solid var(--copper)}
+.hbox.gold{background:var(--gold-bg2);border-left:4px solid var(--gold)}
+.hbox.teal{background:var(--teal-bg);border-left:4px solid var(--teal)}
+.hbox.green{background:var(--green-bg);border-left:4px solid var(--green)}
+.hbox.red{background:var(--red-bg);border-left:4px solid var(--red)}
+.hbox.blue{background:var(--blue-bg);border-left:4px solid var(--blue)}
+.hbox-title{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:7px;font-weight:700}
+.hbox.copper .hbox-title{color:var(--copper)}
+.hbox.gold .hbox-title{color:var(--gold)}
+.hbox.teal .hbox-title{color:var(--teal)}
+.hbox.green .hbox-title{color:var(--green)}
+.hbox.red .hbox-title{color:var(--red)}
+.hbox.blue .hbox-title{color:var(--blue)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:12px 0;border-radius:10px;border:1px solid var(--border2)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;
+  font-family:'Noto Sans Telugu',sans-serif}
+thead tr{background:var(--surf)}
+th{padding:9px 13px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:8.5px;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--copper);
+  border-bottom:2px solid var(--border2);white-space:nowrap}
+td{padding:8px 13px;border-bottom:1px solid var(--border);color:var(--cream2);
+  vertical-align:top;line-height:1.65}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(212,118,58,.03)}
+td b{color:var(--copper);font-weight:600}
+td .g{color:var(--green);font-weight:600}
+td .r{color:var(--red);font-weight:600}
+td .t{color:var(--teal);font-weight:600}
+
+/* BULLET LISTS */
+.blist{list-style:none;margin:8px 0}
+.blist li{position:relative;padding:5px 0 5px 22px;font-size:13.5px;
+  color:var(--cream2);line-height:1.8;border-bottom:1px solid rgba(255,255,255,.03);
+  font-family:'Noto Sans Telugu',sans-serif}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:'▸';position:absolute;left:0;color:var(--copper);font-size:12px;top:7px}
+.blist li b{color:var(--copper);font-weight:600}
+.blist.check li::before{content:'✅';font-size:11px;top:6px}
+.blist.cross li::before{content:'❌';font-size:11px;top:6px}
+.blist.num{counter-reset:li}
+.blist.num li::before{counter-increment:li;content:counter(li)'.';
+  color:var(--copper);font-family:'JetBrains Mono',monospace;font-size:11px;top:7px}
+
+/* PYQ CARDS */
+.pyq-card{background:var(--surf);border:1px solid var(--border2);border-radius:12px;
+  margin-bottom:15px;overflow:hidden}
+.pyq-hd{padding:9px 15px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  background:rgba(45,212,191,.04)}
+.pyq-paper{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;
+  padding:2px 8px;border-radius:3px;letter-spacing:1px}
+.pyq-paper.sc{background:rgba(45,212,191,.15);color:var(--teal)}
+.pyq-paper.mn{background:rgba(196,181,253,.15);color:var(--purple)}
+.pyq-paper.g1{background:rgba(232,197,71,.15);color:var(--gold)}
+.pyq-yr{font-size:11px;color:var(--muted)}
+.pyq-type{font-size:9px;color:var(--muted);margin-left:auto;font-family:'JetBrains Mono',monospace}
+.pyq-body{padding:15px}
+.pyq-q{font-size:13.5px;color:var(--cream);font-weight:500;line-height:1.85;margin-bottom:13px;
+  font-family:'Noto Sans Telugu',sans-serif}
+.pyq-opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
+@media(max-width:500px){.pyq-opts{grid-template-columns:1fr}}
+.pyq-opt{background:var(--card);border:1px solid var(--border);border-radius:7px;
+  padding:8px 11px;font-size:12.5px;color:var(--muted);cursor:pointer;transition:all .15s;
+  text-align:left;font-family:'Noto Sans Telugu',sans-serif;line-height:1.65}
+.pyq-opt:hover{border-color:var(--copper2);color:var(--copper)}
+.pyq-opt.correct{border-color:var(--green)!important;color:var(--green)!important;background:rgba(134,239,172,.07)!important}
+.pyq-opt.wrong{border-color:var(--red)!important;color:var(--red)!important;background:rgba(252,165,165,.05)!important}
+.pyq-opt.reveal{border-color:var(--green)!important;color:var(--green)!important;background:rgba(134,239,172,.05)!important}
+.pyq-decode{background:var(--card);border-radius:8px;padding:11px 14px;
+  font-size:13px;color:var(--muted);line-height:1.85;display:none;
+  font-family:'Noto Sans Telugu',sans-serif}
+.pyq-decode.show{display:block}
+.pyq-decode b{color:var(--copper)}
+
+/* AR CARDS */
+.ar-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.ar-hd{padding:8px 14px;background:rgba(196,181,253,.07);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ar-num{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--purple);letter-spacing:2px;font-weight:700}
+.ar-body{padding:14px 15px}
+.ar-stmt{font-size:13px;color:var(--cream2);line-height:1.85;margin-bottom:9px;
+  padding:9px 12px;border-radius:7px;font-family:'Noto Sans Telugu',sans-serif}
+.ar-stmt.a{background:rgba(147,197,253,.07);border-left:3px solid var(--blue)}
+.ar-stmt.r{background:rgba(196,181,253,.07);border-left:3px solid var(--purple)}
+.ar-stmt-label{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;
+  letter-spacing:1.5px;margin-bottom:5px;display:block}
+.ar-stmt.a .ar-stmt-label{color:var(--blue)}
+.ar-stmt.r .ar-stmt-label{color:var(--purple)}
+.ar-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0}
+@media(max-width:520px){.ar-opts{grid-template-columns:1fr}}
+.ar-opt{background:var(--card);border:1px solid var(--border);border-radius:7px;
+  padding:8px 10px;font-size:11.5px;color:var(--muted);cursor:pointer;transition:all .15s;
+  text-align:left;font-family:'Noto Sans Telugu',sans-serif;line-height:1.6}
+.ar-opt:hover{border-color:var(--purple2);color:var(--purple)}
+.ar-opt.correct{border-color:var(--green)!important;color:var(--green)!important;background:rgba(134,239,172,.07)!important}
+.ar-opt.wrong{border-color:var(--red)!important;color:var(--red)!important;background:rgba(252,165,165,.06)!important}
+.ar-opt.reveal-ar{border-color:var(--green)!important;color:var(--green)!important;background:rgba(134,239,172,.05)!important}
+.ar-decode{margin-top:10px;padding:11px 13px;background:var(--card);border-radius:8px;
+  font-size:12.5px;color:var(--muted);line-height:1.85;display:none;
+  font-family:'Noto Sans Telugu',sans-serif}
+.ar-decode.show{display:block}
+.ar-decode b{color:var(--copper)}
+
+/* TRAP CARDS */
+.trap-card{background:rgba(252,165,165,.05);border:1px solid rgba(252,165,165,.2);
+  border-radius:10px;padding:15px;margin-bottom:12px}
+.trap-num{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--red);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.trap-head{font-size:14px;font-weight:700;color:var(--red);margin-bottom:11px;
+  font-family:'Noto Serif Telugu',serif}
+.trap-row{display:flex;align-items:flex-start;gap:8px;font-size:13px;
+  margin-bottom:7px;line-height:1.75;font-family:'Noto Sans Telugu',sans-serif}
+.trap-row:last-child{margin-bottom:0}
+.trap-icon{flex-shrink:0;margin-top:2px}
+.trap-wrong{color:var(--red)}
+.trap-right{color:var(--green)}
+
+/* MNEMONIC CARD */
+.mnemo-card{background:var(--green-bg);border:1px solid rgba(134,239,172,.2);
+  border-radius:10px;padding:15px;margin-bottom:12px}
+.mnemo-title{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--green);margin-bottom:10px;font-weight:700}
+.mnemo-body{font-size:13.5px;color:var(--cream2);line-height:1.9;
+  font-family:'Noto Sans Telugu',sans-serif}
+.mnemo-key{font-size:22px;font-weight:900;color:var(--green);
+  font-family:'Noto Serif Telugu',serif}
+
+/* ESSAY CARD */
+.essay-card{background:var(--surf);border:1px solid rgba(134,239,172,.2);
+  border-radius:14px;margin-bottom:18px;overflow:hidden}
+.essay-hd{padding:12px 18px;background:rgba(134,239,172,.05);
+  border-bottom:1px solid rgba(134,239,172,.15);
+  display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.essay-mark{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+  padding:3px 7px;border-radius:3px;flex-shrink:0;letter-spacing:1px;margin-top:2px}
+.essay-mark.m10{background:rgba(134,239,172,.2);color:var(--green)}
+.essay-mark.m15{background:rgba(232,197,71,.2);color:var(--gold)}
+.essay-mark.m20{background:rgba(252,165,165,.2);color:var(--red)}
+.essay-topic{font-family:'Noto Serif Telugu',serif;font-size:14px;font-weight:700;
+  color:var(--green);flex:1;line-height:1.45}
+.essay-body{padding:15px 18px}
+.essay-layer{margin-bottom:13px}
+.essay-layer:last-child{margin-bottom:0}
+.essay-layer-title{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;
+  text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.essay-layer-title.intro{color:var(--teal)}
+.essay-layer-title.body1{color:var(--gold)}
+.essay-layer-title.conc{color:var(--green)}
+.essay-point{font-size:13px;color:var(--cream2);padding:4px 0 4px 18px;
+  position:relative;line-height:1.8;font-family:'Noto Sans Telugu',sans-serif}
+.essay-point::before{content:'→';position:absolute;left:0;color:var(--copper);font-size:12px}
+.essay-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.essay-tag{font-size:10px;padding:2px 8px;border-radius:10px;
+  background:rgba(134,239,172,.08);border:1px solid rgba(134,239,172,.2);
+  color:var(--green);font-family:'Noto Sans Telugu',sans-serif}
+
+/* CA CARDS */
+.ca-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;
+  margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+.ca-card:hover{border-color:var(--teal2)}
+.ca-hd{padding:8px 14px;display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--border);flex-wrap:wrap}
+.ca-date{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;
+  padding:2px 8px;border-radius:3px;letter-spacing:1px;flex-shrink:0}
+.ca-date.y21{background:rgba(45,212,191,.15);color:var(--teal)}
+.ca-date.y22{background:rgba(134,239,172,.15);color:var(--green)}
+.ca-date.y24{background:rgba(232,197,71,.15);color:var(--gold)}
+.ca-date.y25{background:rgba(196,181,253,.15);color:var(--purple)}
+.ca-date.y26{background:rgba(252,165,165,.15);color:var(--red)}
+.ca-source{font-size:9.5px;color:var(--muted);margin-left:auto;font-family:'JetBrains Mono',monospace}
+.ca-head{font-size:13.5px;color:var(--cream);font-weight:600;padding:10px 14px 4px;
+  line-height:1.55;font-family:'Noto Sans Telugu',sans-serif}
+.ca-body{padding:0 14px 12px;font-size:12.5px;color:var(--muted);line-height:1.85;
+  font-family:'Noto Sans Telugu',sans-serif}
+.ca-body b{color:var(--copper)}
+.ca-exam{display:flex;align-items:flex-start;gap:7px;padding:7px 14px;
+  border-top:1px solid var(--border);font-size:10.5px;
+  background:rgba(212,118,58,.03);flex-wrap:wrap}
+.ca-exam-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--copper);
+  letter-spacing:1.5px;font-weight:700;flex-shrink:0;padding-top:1px}
+.ca-exam-txt{color:var(--cream2);flex:1;font-family:'Noto Sans Telugu',sans-serif;line-height:1.6}
+
+/* SITE MAP */
+.river-tab-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.river-tab{font-size:10px;padding:5px 12px;border-radius:20px;border:1px solid var(--border2);
+  cursor:pointer;transition:all .2s;font-family:'Noto Sans Telugu',sans-serif;
+  font-weight:600;background:var(--card);color:var(--muted)}
+.river-tab:hover,.river-tab.act{border-color:transparent;color:#000;font-weight:700}
+.river-tab.t-all.act{background:var(--teal)}
+.river-tab.t-indus.act{background:var(--blue)}
+.river-tab.t-ghaggar.act{background:var(--purple)}
+.river-tab.t-gujarat.act{background:var(--gold)}
+.river-tab.t-yamuna.act{background:var(--green)}
+.river-tab.t-rajasthan.act{background:#fb923c}
+.river-panel{display:none}
+.river-panel.act{display:block}
+.rsite-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:10px 0}
+.rsite-card{background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:14px;transition:all .2s}
+.rsite-card:hover{transform:translateY(-2px);border-color:var(--copper2)}
+.rsite-name{font-family:'Noto Serif Telugu',serif;font-size:14px;font-weight:700;
+  color:var(--copper);margin-bottom:5px}
+.rsite-meta{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.rsite-state-tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;padding:2px 7px;
+  border-radius:3px;font-weight:700;background:rgba(212,118,58,.1);color:var(--copper)}
+.rsite-river-tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;padding:2px 7px;
+  border-radius:3px;font-weight:700;background:rgba(45,212,191,.1);color:var(--teal)}
+.rsite-unique{font-size:12.5px;color:var(--cream2);line-height:1.75;
+  font-family:'Noto Sans Telugu',sans-serif}
+.rsite-badge{display:inline-block;font-size:9px;padding:2px 8px;border-radius:10px;
+  margin-top:7px;border:1px solid}
+
+/* CHEAT SHEET */
+.cs-trigger-bar{background:linear-gradient(135deg,var(--copper-bg2),var(--copper-bg));
+  border:2px solid var(--copper);border-radius:14px;padding:18px 20px;
+  display:flex;align-items:center;gap:14px;margin:18px 0;cursor:pointer;
+  transition:all .2s;flex-wrap:wrap}
+.cs-trigger-bar:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,118,58,.2)}
+.cs-trigger-icon{font-size:32px;flex-shrink:0}
+.cs-trigger-info{flex:1;min-width:180px}
+.cs-trigger-title{font-family:'Noto Serif Telugu',serif;font-size:17px;font-weight:900;
+  color:var(--copper);margin-bottom:4px;line-height:1.35}
+.cs-trigger-sub{font-size:12px;color:var(--cream2);line-height:1.55;
+  font-family:'Noto Sans Telugu',sans-serif}
+.cs-trigger-cta{background:var(--copper);color:#fff;font-family:'JetBrains Mono',monospace;
+  font-size:10px;font-weight:700;padding:10px 18px;border-radius:8px;letter-spacing:.5px;
+  white-space:nowrap;border:none;cursor:pointer;transition:all .15s;flex-shrink:0}
+.cs-trigger-cta:hover{background:var(--copper2)}
+.cs-overlay{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:2000;
+  display:none;overflow-y:auto;padding:14px}
+.cs-overlay.open{display:block}
+.cs-wrap{background:var(--card);border:1px solid var(--copper);border-radius:16px;
+  max-width:860px;width:100%;margin:0 auto 40px}
+.cs-topbar{background:var(--copper);padding:13px 20px;border-radius:16px 16px 0 0;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.cs-topbar-title{font-family:'Noto Serif Telugu',serif;font-size:16px;font-weight:900;color:#fff}
+.cs-actions{display:flex;gap:8px}
+.cs-btn{padding:6px 14px;border-radius:7px;font-size:11px;font-weight:700;border:none;
+  cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all .15s}
+.cs-btn.print{background:#000;color:var(--copper)}
+.cs-btn.close-cs{background:rgba(255,255,255,.2);color:#fff}
+.cs-content{padding:20px}
+.cs-page{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.cs-page:last-child{border-bottom:none;margin-bottom:0}
+.cs-page-hd{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--copper);margin-bottom:13px;font-weight:700;
+  padding:5px 10px;background:var(--copper-bg);border-radius:5px;display:inline-block}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:500px){.cs-grid{grid-template-columns:1fr}}
+.cs-fact{background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
+.cs-fact-q{font-size:11px;color:var(--muted);margin-bottom:3px;line-height:1.5;
+  font-family:'Noto Sans Telugu',sans-serif}
+.cs-fact-a{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--copper);font-weight:700}
+.cs-mini-table{width:100%;border-collapse:collapse;font-size:12px;margin:7px 0}
+.cs-mini-table th{background:var(--surf);padding:6px 10px;
+  font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;
+  color:var(--copper);text-transform:uppercase;border-bottom:1px solid var(--border);text-align:left}
+.cs-mini-table td{padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);
+  color:var(--cream2);vertical-align:top;font-family:'Noto Sans Telugu',sans-serif}
+.cs-mini-table td b{color:var(--copper)}
+.cs-mini-table tr:last-child td{border-bottom:none}
+.cs-trap-list{margin:4px 0}
+.cs-trap-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px 0;
+  border-bottom:1px solid var(--border);font-size:11.5px}
+@media(max-width:480px){.cs-trap-row{grid-template-columns:1fr}}
+.cs-trap-row:last-child{border-bottom:none}
+.cs-wrong{color:var(--red);font-family:'Noto Sans Telugu',sans-serif;line-height:1.6}
+.cs-right{color:var(--green);font-family:'Noto Sans Telugu',sans-serif;line-height:1.6}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:12px 0}
+.info-cell{background:var(--surf);border:1px solid var(--border);border-radius:10px;
+  padding:13px 11px;text-align:center;transition:all .2s}
+.info-cell:hover{border-color:var(--copper2);transform:translateY(-2px)}
+.info-cell-icon{font-size:24px;margin-bottom:7px}
+.info-cell-val{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;
+  color:var(--copper);display:block}
+.info-cell-lbl{font-size:9.5px;color:var(--muted);letter-spacing:.5px;margin-top:2px;
+  display:block;font-family:'Noto Sans Telugu',sans-serif;line-height:1.4}
+.info-cell-sub{font-size:9px;color:var(--dim);margin-top:3px;line-height:1.4;
+  font-family:'Noto Sans Telugu',sans-serif}
+
+/* BTT */
+#btt{position:fixed;bottom:22px;right:18px;width:44px;height:44px;border-radius:50%;
+  background:var(--copper);color:#fff;font-size:17px;font-weight:900;border:none;
+  cursor:pointer;display:none;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(212,118,58,.4);z-index:990;transition:all .2s}
+#btt.on{display:flex}
+#btt:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(212,118,58,.55)}
+
+/* UTILITY */
+.spacer{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:26px 0}
+.label{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px}
+.label::after{content:'';flex:1;height:1px;background:var(--border)}
+.img-full{border-radius:10px;overflow:hidden;border:1px solid var(--border2);margin:12px 0}
+.img-full img{width:100%;max-height:260px;object-fit:cover;display:block;opacity:.82}
+.img-full .img-cap{background:var(--surf);padding:8px 14px;font-size:11px;color:var(--muted);
+  border-top:1px solid var(--border);font-family:'Noto Sans Telugu',sans-serif;line-height:1.6}
+.img-full .img-cap b{color:var(--copper)}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;margin:14px 0}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;
+  width:2px;background:linear-gradient(180deg,var(--copper),var(--gold),var(--teal))}
+.tl-item{position:relative;margin-bottom:22px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+  border:2px solid var(--copper);background:var(--bg);z-index:1}
+.tl-dot.filled{background:var(--copper);box-shadow:0 0 10px rgba(212,118,58,.4)}
+.tl-yr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--copper);
+  font-weight:700;margin-bottom:3px}
+.tl-event{font-size:13.5px;color:var(--cream);font-weight:600;margin-bottom:2px;
+  font-family:'Noto Sans Telugu',sans-serif}
+.tl-detail{font-size:12px;color:var(--muted);line-height:1.7;
+  font-family:'Noto Sans Telugu',sans-serif}
+
+/* CONFIDENCE */
+.conf-item{display:flex;gap:12px;padding:10px 14px;border-radius:8px;
+  border:1px solid var(--border);cursor:pointer;transition:all .2s;margin-bottom:6px;
+  font-family:'Noto Sans Telugu',sans-serif}
+.conf-item:hover,.conf-item.sel{border-color:var(--copper);background:var(--copper-bg)}
+.conf-check{width:18px;height:18px;border:2px solid var(--border2);border-radius:4px;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:#fff;transition:all .15s}
+.conf-item.sel .conf-check{background:var(--copper);border-color:var(--copper)}
+.conf-label{font-size:13px;color:var(--cream);flex:1;line-height:1.6}
+.conf-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.conf-msg{margin-top:12px;padding:12px 14px;border-radius:8px;background:var(--copper-bg2);
+  border:1px solid rgba(212,118,58,.2);font-size:13px;color:var(--cream);display:none;
+  font-family:'Noto Sans Telugu',sans-serif;line-height:1.85}
+.conf-msg.show{display:block}
+
+/* REV GRID */
+.rev-grid{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:start}
+.rev-day{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--copper);
+  font-weight:700;white-space:nowrap;padding-top:4px}
+.rev-task{font-size:13px;color:var(--cream2);line-height:1.75;
+  font-family:'Noto Sans Telugu',sans-serif}
+.rev-task b{color:var(--cream);font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .toc-grid{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:repeat(2,1fr)}
+  .rsite-grid{grid-template-columns:1fr}
+}
+
+/* PRINT */
+@media print{
+  body{background:#fff!important;color:#000!important}
+  #topnav,#pgbar,#btt,body::before,.scard-toggle{display:none!important}
+  .scard-body{display:block!important}
+  .scard{break-inside:avoid;border:1px solid #ccc;background:#fff!important}
+  .wrap{max-width:100%;padding:0}
+  .hbox{border:1px solid #ccc;background:#fff!important}
+  table{font-size:11px}
+  th{background:#f0f0f0!important;color:#333!important}
+  td{color:#333!important}
+  .blist li{color:#333!important}
+  .prose,.guru-text{color:#111!important}
+}
+</style>
+</head>
+<body>
+<div id="pgbar"></div>
+
+<nav id="topnav">
+  <div class="tnav-inner">
+    <span class="tnav-brand">IVC · తెలుగు మాస్టర్‌క్లాస్</span>
+    <a class="tnav-link" href="#ch1">కనుగొనడం</a>
+    <a class="tnav-link" href="#ch2">భౌగోళికం</a>
+    <a class="tnav-link" href="#ch3">కాలక్రమం</a>
+    <a class="tnav-link" href="#ch4">పట్టణ ప్రణాళిక</a>
+    <a class="tnav-link" href="#ch5">స్థలాలు</a>
+    <a class="tnav-link" href="#ch6">మతం</a>
+    <a class="tnav-link" href="#ch7">ఆర్థికం</a>
+    <a class="tnav-link" href="#ch8">వాణిజ్యం</a>
+    <a class="tnav-link" href="#ch9">కళలు</a>
+    <a class="tnav-link" href="#ch10">లిపి</a>
+    <a class="tnav-link" href="#ch11">సమాజం</a>
+    <a class="tnav-link" href="#ch12">సాంకేతికత</a>
+    <a class="tnav-link" href="#ch13">పతనం</a>
+    <a class="tnav-link" href="#ch14">వారసత్వం</a>
+    <a class="tnav-link" href="#ch15">ఉచ్చులు</a>
+    <a class="tnav-link" href="#ch16">పట్టికలు</a>
+    <a class="tnav-link" href="#ch17">PYQలు</a>
+    <a class="tnav-link" href="#ch18">అభ్యాసం</a>
+    <a class="tnav-link" href="#ch19">పదకోశం</a>
+    <a class="tnav-link" href="#ch20">కేప్సూల్</a>
+    <a class="tnav-link" href="#ch21">అకాడమీ + PYQ</a>
+    <a class="tnav-link" href="#ch22">A-R + మెయిన్స్</a>
+    <a class="tnav-link" href="#ch23">లోతల్ + CA</a>
+    <a class="tnav-link" href="#ch24">స్థల మ్యాప్</a>
+    <a class="tnav-link" href="#ch25">చీట్ షీట్</a>
+  </div>
+</nav>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <span class="hero-kicker">APPSC Titan · తెలుగు మాధ్యమం · అధ్యాయం 01 · పురాతన చరిత్ర</span>
+  <h1 class="hero-main"><span class="hl">సింధు లోయ</span><br>నాగరికత</h1>
+  <div class="hero-eng">Indus Valley Civilization · IVC</div>
+  <div class="hero-sub">ప్రపంచపు మొదటి పట్టణ నాగరికత — APPSC గ్రూప్-1 మరియు గ్రూప్-2 సంపూర్ణ గైడ్</div>
+  <div class="hero-tags">
+    <span class="tag copper">🔥 అత్యధిక ప్రాముఖ్యత</span>
+    <span class="tag gold">📚 తెలుగు అకాడమీ ఆధారం</span>
+    <span class="tag teal">🎯 APPSC లో 8+ సార్లు</span>
+    <span class="tag green">✅ స్క్రీనింగ్ + మెయిన్స్</span>
+    <span class="tag red">⚠️ ఉచ్చు ప్రశ్నలు ఎక్కువ</span>
+    <span class="tag blue">🧬 DNA పరిశోధన 2025</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><span class="hstat-val">1,400+</span><span class="hstat-lbl">IVC స్థలాలు</span></div>
+    <div class="hstat"><span class="hstat-val">1.2M</span><span class="hstat-lbl">చ.కి.మీ విస్తీర్ణం</span></div>
+    <div class="hstat"><span class="hstat-val">25</span><span class="hstat-lbl">అధ్యాయాలు</span></div>
+    <div class="hstat"><span class="hstat-val">60+</span><span class="hstat-lbl">అభ్యాస ప్రశ్నలు</span></div>
+    <div class="hstat"><span class="hstat-val">12</span><span class="hstat-lbl">ఉచ్చు డీకోడర్లు</span></div>
+    <div class="hstat"><span class="hstat-val">7</span><span class="hstat-lbl">జ్ఞాపక సూత్రాలు</span></div>
+  </div>
+</header>
+
+<!-- HERO IMAGE -->
+<div class="img-full">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Mohenjodaro_Sindh.jpeg/1280px-Mohenjodaro_Sindh.jpeg" alt="మొహెంజోదారో" loading="lazy">
+  <div class="img-cap"><b>మొహెంజోదారో, సింధ్, పాకిస్థాన్</b> — IVC యొక్క అత్యంత శ్రేష్ఠంగా సంరక్షించబడిన నగరం. 1980 నుండి UNESCO ప్రపంచ వారసత్వ స్థలం. 4,000 సంవత్సరాల తర్వాత కూడా వీధులు నేరుగా ఉన్నాయి.</div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap" id="toc">
+  <div class="toc-head"><span style="font-size:20px">📋</span><span class="toc-head-title">విషయ సూచిక — క్లిక్ చేసి వెళ్ళండి</span></div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#ch1"><span class="toc-num">01</span><span class="toc-icon">🔍</span><span class="toc-text">కనుగొనడం మరియు తవ్వకాల చరిత్ర</span></a>
+    <a class="toc-item" href="#ch2"><span class="toc-num">02</span><span class="toc-icon">🗺️</span><span class="toc-text">భౌగోళిక వ్యాప్తి మరియు నది వ్యవస్థలు</span></a>
+    <a class="toc-item" href="#ch3"><span class="toc-num">03</span><span class="toc-icon">⏳</span><span class="toc-text">కాలక్రమ దశలు — టైమ్‌లైన్</span></a>
+    <a class="toc-item" href="#ch4"><span class="toc-num">04</span><span class="toc-icon">🏙️</span><span class="toc-text">పట్టణ ప్రణాళిక మరియు నగర లక్షణాలు</span></a>
+    <a class="toc-item" href="#ch5"><span class="toc-num">05</span><span class="toc-icon">🏛️</span><span class="toc-text">ముఖ్యమైన స్థలాలు — లోతైన అధ్యయనం</span></a>
+    <a class="toc-item" href="#ch6"><span class="toc-num">06</span><span class="toc-icon">🕉️</span><span class="toc-text">మతం, ఆరాధన మరియు సమాధి పద్ధతులు</span></a>
+    <a class="toc-item" href="#ch7"><span class="toc-num">07</span><span class="toc-icon">🌾</span><span class="toc-text">ఆర్థిక వ్యవస్థ — వ్యవసాయం మరియు చేతివృత్తులు</span></a>
+    <a class="toc-item" href="#ch8"><span class="toc-num">08</span><span class="toc-icon">🚢</span><span class="toc-text">వాణిజ్యం — దేశీయ మరియు అంతర్జాతీయ</span></a>
+    <a class="toc-item" href="#ch9"><span class="toc-num">09</span><span class="toc-icon">🎨</span><span class="toc-text">కళ, శిల్పాలు, కుండలు మరియు కళాకృతులు</span></a>
+    <a class="toc-item" href="#ch10"><span class="toc-num">10</span><span class="toc-icon">🔤</span><span class="toc-text">లిపి, భాష మరియు రాత వ్యవస్థ</span></a>
+    <a class="toc-item" href="#ch11"><span class="toc-num">11</span><span class="toc-icon">👥</span><span class="toc-text">సామాజిక జీవితం, దుస్తులు, ఆహారం</span></a>
+    <a class="toc-item" href="#ch12"><span class="toc-num">12</span><span class="toc-icon">⚙️</span><span class="toc-text">సాంకేతికత — లోహాలు, తూనికలు, పనిముట్లు</span></a>
+    <a class="toc-item" href="#ch13"><span class="toc-num">13</span><span class="toc-icon">🌅</span><span class="toc-text">పతనం — అన్ని సిద్ధాంతాల పోలిక</span></a>
+    <a class="toc-item" href="#ch14"><span class="toc-num">14</span><span class="toc-icon">🌺</span><span class="toc-text">వారసత్వం, DNA అధ్యయనం మరియు AP సంబంధం</span></a>
+    <a class="toc-item" href="#ch15"><span class="toc-num">15</span><span class="toc-icon">⚠️</span><span class="toc-text">ఉచ్చు డీకోడర్ — 12 ప్రాణాంతక ఉచ్చులు</span></a>
+    <a class="toc-item" href="#ch16"><span class="toc-num">16</span><span class="toc-icon">📊</span><span class="toc-text">మాస్టర్ పట్టికలు — అన్ని సరిపోల్చే డేటా</span></a>
+    <a class="toc-item" href="#ch17"><span class="toc-num">17</span><span class="toc-icon">📝</span><span class="toc-text">APPSC నిజమైన PYQలు విశ్లేషణతో</span></a>
+    <a class="toc-item" href="#ch18"><span class="toc-num">18</span><span class="toc-icon">🧩</span><span class="toc-text">అభ్యాస విభాగం + జ్ఞాపక సూత్రాలు</span></a>
+    <a class="toc-item" href="#ch19"><span class="toc-num">19</span><span class="toc-icon">📖</span><span class="toc-text">తెలుగు పదకోశం + అంచనా ప్రశ్నలు</span></a>
+    <a class="toc-item" href="#ch20"><span class="toc-num">20</span><span class="toc-icon">⚡</span><span class="toc-text">మాస్టర్ కేప్సూల్ + పునర్మలుపు షెడ్యూల్</span></a>
+    <a class="toc-item" href="#ch21"><span class="toc-num">21</span><span class="toc-icon">📚</span><span class="toc-text">తెలుగు అకాడమీ వాక్యాలు + PYQ బ్యాంక్</span></a>
+    <a class="toc-item" href="#ch22"><span class="toc-num">22</span><span class="toc-icon">⚖️</span><span class="toc-text">Assertion-Reason + మెయిన్స్ ఎస్సే ఔట్‌లైన్లు</span></a>
+    <a class="toc-item" href="#ch23"><span class="toc-num">23</span><span class="toc-icon">⚓</span><span class="toc-text">లోతల్ సముద్ర సంక్లిష్టత + కరెంట్ అఫైర్స్</span></a>
+    <a class="toc-item" href="#ch24"><span class="toc-num">24</span><span class="toc-icon">🗺️</span><span class="toc-text">రాష్ట్రాలు మరియు నదుల వారీగా స్థల మ్యాప్</span></a>
+    <a class="toc-item" href="#ch25"><span class="toc-num">25</span><span class="toc-icon">📄</span><span class="toc-text">ముద్రించదగిన 10-పేజీ చీట్ షీట్</span></a>
+  </div>
+</div>
+
+<!-- ═══ CH 1 — కనుగొనడం చరిత్ర ═══ -->
+<div class="ch-div" id="ch1">
+  <span class="ch-div-num">అధ్యాయం 01</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🔍</span>
+</div>
+<div class="scard copper">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🔍</span>
+    <span class="scard-title copper">కనుగొనడం మరియు తవ్వకాల చరిత్ర</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">విద్యార్థులారా, మొదట అర్థం చేసుకోండి — ఈ నాగరికత <b>మనం కనుగొనేవరకు</b> మట్టిలో దాగి ఉంది! 1920ల వరకు ప్రపంచానికి తెలియదు. ఒక్కో తవ్వకంతో ఒక్కో రహస్యం బయటపడింది. ఇది చరిత్రలో అత్యంత <b>రోమాంచకమైన</b> ఆవిష్కరణ!</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot filled"></div>
+        <div class="tl-yr">1826</div>
+        <div class="tl-event">చార్లెస్ మాసన్ — మొదటి సందర్శన</div>
+        <div class="tl-detail">హరప్పా గుట్టలను చూసి నివేదించాడు. కానీ అప్పుడు ఎవరూ పట్టించుకోలేదు.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-yr">1875</div>
+        <div class="tl-event">అలెగ్జాండర్ కన్నింగ్‌హామ్ — అధికారిక నివేదిక</div>
+        <div class="tl-detail">ASI మొదటి డైరెక్టర్ జనరల్. హరప్పా గురించి మొదటి అధికారిక నివేదిక రాశారు. <b>పరీక్ష గమనిక:</b> కన్నింగ్‌హామ్ = ASI మొదటి DG</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot filled"></div>
+        <div class="tl-yr">1921</div>
+        <div class="tl-event">దయారామ్ సాహ్ని — హరప్పా తవ్వకాలు ప్రారంభం</div>
+        <div class="tl-detail">ASI ఆధ్వర్యంలో హరప్పాను తవ్వారు. <b>జ్ఞాపకం:</b> "1921 = హరప్పా = దయారామ్ సాహ్ని"</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot filled"></div>
+        <div class="tl-yr">1922</div>
+        <div class="tl-event">R.D. బెనర్జీ — మొహెంజోదారో తవ్వకాలు</div>
+        <div class="tl-detail">తర్వాత సంవత్సరం మొహెంజోదారో తవ్వారు. <b>జ్ఞాపకం:</b> "1922 = మొహెంజోదారో = బెనర్జీ"</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-yr">1924</div>
+        <div class="tl-event">జాన్ మార్షల్ — "సింధు లోయ నాగరికత" పేరు పెట్టారు</div>
+        <div class="tl-detail">ఈ నాగరికతను అధికారికంగా ప్రకటించారు. <b>పేరు పెట్టింది మార్షల్ మాత్రమే!</b></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-yr">1944</div>
+        <div class="tl-event">R.E.M. వీలర్ — హరప్పాను మళ్ళీ తవ్వారు</div>
+        <div class="tl-detail">శాస్త్రీయ పద్ధతిలో తవ్వకాలు చేశారు. "ఆర్య దండయాత్ర" సిద్ధాంతం ప్రతిపాదించారు.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot filled"></div>
+        <div class="tl-yr">1953</div>
+        <div class="tl-event">స్వాతంత్ర్యానంతర మొదటి తవ్వకం — రోపర్</div>
+        <div class="tl-detail">Y.D. శర్మ రోపర్ తవ్వారు. స్వాతంత్ర్యం తర్వాత ASI చేసిన <b>మొదటి</b> IVC తవ్వకం.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-yr">1957-63</div>
+        <div class="tl-event">S.R. రావు — లోతల్ తవ్వకాలు</div>
+        <div class="tl-detail">ప్రపంచంలోనే మొదటి ఓడరేవు కనుగొన్నారు. <b>లోతల్ = S.R. రావు</b></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot filled"></div>
+        <div class="tl-yr">1989-2005</div>
+        <div class="tl-event">R.S. బిష్ట్ — ధోలావీర తవ్వకాలు</div>
+        <div class="tl-detail">భారతదేశంలో అతిపెద్ద IVC స్థలం. 2021లో UNESCO హోదా వచ్చింది.</div>
+      </div>
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ పాఠ్యపుస్తకం — భారత దేశ చరిత్ర, అధ్యాయం 2: "సింధు నాగరికత యొక్క ఆవిష్కరణ 1920-21 తవ్వకాలతో ప్రారంభమైంది. హరప్పా మరియు మొహెంజోదారో రెండూ ఒకే సంస్కృతికి చెందినవని స్పష్టమైంది."</div>
+    <div class="hbox red" style="margin-top:14px">
+      <div class="hbox-title">పరీక్ష ఉచ్చు — జాగ్రత్త!</div>
+      చాలామంది విద్యార్థులు కన్నింగ్‌హామ్‌ను "హరప్పా కనుగొన్న వ్యక్తి" అని రాస్తారు. <b>తప్పు!</b> కన్నింగ్‌హామ్ నివేదించారు మాత్రమే. తవ్వకాలు చేసినది <b>దయారామ్ సాహ్ని (1921)</b>.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 2 — భౌగోళిక వ్యాప్తి ═══ -->
+<div class="ch-div" id="ch2">
+  <span class="ch-div-num">అధ్యాయం 02</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🗺️</span>
+</div>
+<div class="scard teal">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🗺️</span>
+    <span class="scard-title teal">భౌగోళిక వ్యాప్తి మరియు నది వ్యవస్థలు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">విద్యార్థులారా, IVC ఎంత పెద్దదో అర్థం చేసుకోండి — <b>ఈజిప్ట్ మరియు మెసపొటేమియా రెండింటికంటే విస్తీర్ణంలో పెద్దది!</b> ఇది పరీక్షలో తప్పకుండా వస్తుంది. "మూడు పురాతన నాగరికతల్లో అత్యంత విస్తృతమైనది" అని గుర్తుపెట్టుకోండి.</div>
+    </div>
+    <div class="info-grid">
+      <div class="info-cell"><span class="info-cell-icon">📐</span><span class="info-cell-val">1.2M</span><span class="info-cell-lbl">చ.కి.మీ విస్తీర్ణం</span><span class="info-cell-sub">ఈజిప్ట్ + మెసపొటేమియా కంటే పెద్దది</span></div>
+      <div class="info-cell"><span class="info-cell-icon">🏘️</span><span class="info-cell-val">1,400+</span><span class="info-cell-lbl">మొత్తం స్థలాలు</span><span class="info-cell-sub">భారత్, పాకిస్థాన్, ఆఫ్ఘనిస్థాన్‌లో</span></div>
+      <div class="info-cell"><span class="info-cell-icon">👥</span><span class="info-cell-val">50 లక్షలు</span><span class="info-cell-lbl">గరిష్ట జనాభా అంచనా</span><span class="info-cell-sub">పండుగల కాలంలో</span></div>
+      <div class="info-cell"><span class="info-cell-icon">🌍</span><span class="info-cell-val">3</span><span class="info-cell-lbl">దేశాలలో విస్తరించింది</span><span class="info-cell-sub">భారత్ · పాకిస్థాన్ · అఫ్ఘాన్</span></div>
+    </div>
+    <div class="sub-hd" style="margin-top:16px">అంచు స్థలాలు — మ్యాప్ ప్రశ్నలకు తప్పనిసరి</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>దిక్కు</th><th>స్థలం</th><th>రాష్ట్రం/ప్రాంతం</th><th>నది</th><th>పరీక్ష గమనిక</th></tr></thead>
+        <tbody>
+          <tr><td><span class="kwg">ఉత్తరం</span></td><td><b>మండ</b></td><td>జమ్మూ కాశ్మీర్</td><td>చీనాబ్ నది</td><td>హరప్పాతో గందరగోళం చెందకండి</td></tr>
+          <tr><td><span class="kwr">దక్షిణం</span></td><td><b>దైమాబాద్</b></td><td>మహారాష్ట్ర (అహ్మద్‌నగర్)</td><td>ప్రవర నది</td><td>మహారాష్ట్ర వరకు వ్యాపించింది!</td></tr>
+          <tr><td><span class="kwb">పశ్చిమం</span></td><td><b>సుత్కగెందోర్</b></td><td>బలూచిస్థాన్, పాకిస్థాన్</td><td>దాష్ట్ నది</td><td>పశ్చిమం = బలూచిస్థాన్, సింధ్ కాదు</td></tr>
+          <tr><td><span class="kw">తూర్పు</span></td><td><b>ఆలంగీర్‌పూర్</b></td><td>ఉత్తర ప్రదేశ్ (మీరట్)</td><td>హిందోన్ నది</td><td>UP స్థలం విద్యార్థులను ఆశ్చర్యపరుస్తుంది</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox teal">
+      <div class="hbox-title">జ్ఞాపక సూత్రం</div>
+      <b>MNSEA</b> — <b>M</b>anda(ఉత్తరం), <b>N</b>orth = జమ్మూ, <b>S</b>utkagendor(పశ్చిమం), <b>E</b>ast = ఆలంగీర్‌పూర్, <b>A</b>hmednagar(దైమాబాద్ — దక్షిణం)
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 3 — కాలక్రమ దశలు ═══ -->
+<div class="ch-div" id="ch3">
+  <span class="ch-div-num">అధ్యాయం 03</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">⏳</span>
+</div>
+<div class="scard gold">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">⏳</span>
+    <span class="scard-title gold">కాలక్రమ దశలు — Timeline</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">మూడు దశలను <b>ఖచ్చితంగా</b> గుర్తుపెట్టుకోండి. "పరిపక్వ దశ" అంటే IVC యొక్క స్వర్ణయుగం. అదే కాలంలో మొహెంజోదారో, హరప్పా అభివృద్ధి చెందాయి. తేదీలు <span class="g">మాత్రమే</span> కాదు, <span class="t">ఏ దశలో ఏం జరిగింది</span> అనేది అర్థం చేసుకోండి.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>దశ</th><th>తెలుగు పేరు</th><th>కాలం (BCE)</th><th>ముఖ్య లక్షణాలు</th></tr></thead>
+        <tbody>
+          <tr><td><b>Early / Pre-Harappan</b></td><td><b>ప్రారంభ హరప్పన్ దశ</b></td><td>3300–2600</td><td>చిన్న గ్రామాలు, వ్యవసాయం ప్రారంభం, సాధారణ మట్టి కుండలు</td></tr>
+          <tr><td><b>Mature Harappan</b></td><td><b>పరిపక్వ హరప్పన్ దశ</b></td><td>2600–1900</td><td>పెద్ద నగరాలు, గొప్ప స్నానవాటిక, పట్టణ ప్రణాళిక, అంతర్జాతీయ వాణిజ్యం</td></tr>
+          <tr><td><b>Late / Decline</b></td><td><b>పతన దశ</b></td><td>1900–1300</td><td>నగరాలు వదిలివేయబడ్డాయి, వ్రాత మరిచిపోయారు, నాణ్యత తగ్గింది</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox gold">
+      <div class="hbox-title">పరీక్ష ముఖ్యాంశం</div>
+      "IVC ఎప్పుడు ప్రారంభమైంది?" అని అడిగితే — <b>3300 BCE</b> (ప్రారంభ దశ). "ఎప్పుడు అభివృద్ధి చెందింది?" అని అడిగితే — <b>2600–1900 BCE</b> (పరిపక్వ దశ). "ఎప్పుడు పతనమైంది?" అని అడిగితే — <b>1900 BCE</b> తర్వాత.
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "సింధు నాగరికత క్రీ.పూ. 2600 నుండి 1900 వరకు పరిపక్వ దశలో ఉంది. ఈ కాలంలోనే పట్టణ నాగరికత పూర్తిగా వికసించింది."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 4 — పట్టణ ప్రణాళిక ═══ -->
+<div class="ch-div" id="ch4">
+  <span class="ch-div-num">అధ్యాయం 04</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🏙️</span>
+</div>
+<div class="scard copper">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🏙️</span>
+    <span class="scard-title copper">పట్టణ ప్రణాళిక మరియు నగర లక్షణాలు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">చూడండి విద్యార్థులారా — 4,000 సంవత్సరాల క్రితమే వీళ్ళు <b>Grid System</b> లో నగరాలు కట్టారు! ఇప్పటి "స్మార్ట్ సిటీ మిషన్" కూడా అదే ఆలోచన. పరీక్షలో పట్టణ ప్రణాళిక గురించి కనీసం 2-3 ప్రశ్నలు వస్తాయి.</div>
+    </div>
+    <div class="sub-hd">నగర నిర్మాణం — రెండు భాగాలు</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>భాగం</th><th>తెలుగు పేరు</th><th>దిక్కు</th><th>లక్షణాలు</th></tr></thead>
+        <tbody>
+          <tr><td><b>Citadel</b></td><td><b>కోట / ఉన్నత నగరం</b></td><td>పశ్చిమం (ఎత్తైన గుట్ట)</td><td>పాలనా భవనాలు, గొప్ప స్నానవాటిక, ధాన్యాగారాలు, మతపరమైన నిర్మాణాలు</td></tr>
+          <tr><td><b>Lower Town</b></td><td><b>దిగువ నగరం</b></td><td>తూర్పు</td><td>నివాస గృహాలు, వ్యాపారుల దుకాణాలు, సాధారణ ప్రజల నివాసాలు</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-hd" style="margin-top:16px">వీధుల వ్యవస్థ</div>
+    <ul class="blist">
+      <li><b>గ్రిడ్ విధానం:</b> వీధులు ఒకదానికొకటి నిలువు కోణాల్లో కలుస్తాయి (90°) — ఉత్తర-దక్షిణ మరియు తూర్పు-పశ్చిమ దిశలో</li>
+      <li><b>ప్రధాన వీధులు:</b> 10 మీటర్ల వరకు వెడల్పు — ఇప్పటి సాధారణ రోడ్డు కంటే పెద్దది!</li>
+      <li><b>ఇళ్ళు:</b> వీధి వైపు గోడలు మాత్రమే ఉంటాయి, కిటికీలు లేవు — లోపల ఆంగనం ఉండేది</li>
+      <li><b>ఇటుకల నిర్మాణం:</b> కాల్చిన ఇటుకలు, నిష్పత్తి <b>4:2:1</b> (పొడవు:వెడల్పు:ఎత్తు) — 1,400+ స్థలాల్లో ఒకే నిష్పత్తి!</li>
+    </ul>
+    <div class="sub-hd" style="margin-top:16px">మురుగునీటి వ్యవస్థ — ప్రపంచంలో మొదటిది!</div>
+    <div class="guru-card">
+      <div class="guru-text">ఇది పరీక్షలో <b>తప్పకుండా వస్తుంది</b>. మురుగు నీరు ఏ దిక్కున ప్రవహిస్తుంది? <span class="r">పొరపాటు జవాబు:</span> "దిగువ నగరం నుండి ఉన్నత నగరానికి". <span class="g">సరైన జవాబు:</span> <b>ఇల్లు → సందు → ప్రధాన వీధి కాలువ</b>. ఈ క్రమం తప్పనిసరిగా గుర్తుపెట్టుకోండి!</div>
+    </div>
+    <ul class="blist">
+      <li>కాలువలు: రాళ్ళతో/ఇటుకలతో కప్పబడి ఉంటాయి — మూసి ఉన్న వ్యవస్థ</li>
+      <li>తనిఖీ బిలాలు (Inspection holes): అవసరమైనప్పుడు శుభ్రం చేయడానికి</li>
+      <li>ప్రతి ఇంటిలో: స్నానపుగది, మరుగుదొడ్డి, బావి — విలువైన పురాతన హక్కులు!</li>
+    </ul>
+    <div class="hbox green">
+      <div class="hbox-title">ఇప్పటి ప్రాసంగికత</div>
+      2015లో భారత ప్రభుత్వం ప్రారంభించిన <b>స్మార్ట్ సిటీ మిషన్</b> — మురుగు వ్యవస్థ, ప్రణాళికాబద్ధ నగరం, ఏకీకృత వ్యవస్థలు — ఇవన్నీ IVC 4,000 సంవత్సరాల క్రితమే చేసింది!
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "హరప్పా నాగరికత యొక్క అత్యంత విశేషమైన లక్షణం పట్టణ ప్రణాళిక. ప్రతి నగరంలోనూ రెండు విభాగాలు ఉన్నాయి — కోట మరియు దిగువ నగరం. వీధులు నిలువు కోణంలో ఒకదానికొకటి కలుస్తాయి."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 5 — ముఖ్యమైన స్థలాలు ═══ -->
+<div class="ch-div" id="ch5">
+  <span class="ch-div-num">అధ్యాయం 05</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🏛️</span>
+</div>
+<div class="scard gold">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🏛️</span>
+    <span class="scard-title gold">ముఖ్యమైన స్థలాలు — ప్రతి స్థలం యొక్క విలక్షణత</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">పరీక్షలో "ఏ స్థలంలో ఏ వస్తువు దొరికింది?" అని తప్పకుండా అడుగుతారు. ప్రతి స్థలానికి <b>ఒక ముఖ్య విలక్షణత</b> గుర్తుపెట్టుకోండి. <span class="g">Match the Following</span> ప్రశ్నలకు ఇది బంగారు.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>స్థలం</th><th>రాష్ట్రం</th><th>నది</th><th>విలక్షణ ఆవిష్కరణ</th></tr></thead>
+        <tbody>
+          <tr><td><b>మొహెంజోదారో</b></td><td>సింధ్ (పాక్)</td><td>సింధు</td><td>గొప్ప స్నానవాటిక, నృత్యగత్తె విగ్రహం, పురోహిత రాజు విగ్రహం, పశుపతి ముద్ర</td></tr>
+          <tr><td><b>హరప్పా</b></td><td>పంజాబ్ (పాక్)</td><td>రావి</td><td>రెండు వరుసల్లో 6 ధాన్యాగారాలు, జంట సమాధి వరుసలు, పని ప్లాట్‌ఫారం</td></tr>
+          <tr><td><b>లోతల్</b></td><td>గుజరాత్</td><td>సాబర్మతి/ఖంభాట్</td><td>ప్రపంచ మొదటి ఓడరేవు, అగ్ని బలిపీఠాలు, జంట సమాధి, బియ్యం పొట్టు</td></tr>
+          <tr><td><b>కాలీబంగన్</b></td><td>రాజస్థాన్</td><td>ఘగ్గర్-హక్రా</td><td>అగ్ని బలిపీఠాలు, దున్నిన పొలం, ఒంటె ఎముకలు, భూకంప ఆధారాలు</td></tr>
+          <tr><td><b>ధోలావీరా</b></td><td>గుజరాత్</td><td>రాన్ ఆఫ్ కచ్</td><td>UNESCO WHS 2021, మూడు భాగాల నగరం, 16 నీటి జలాశయాలు, 10 అక్షరాల శాసనం</td></tr>
+          <tr><td><b>రాఖీగఢి</b></td><td>హర్యానా</td><td>ఘగ్గర్-హక్రా</td><td>భారతదేశంలో అతిపెద్ద IVC స్థలం (350 హె.), DNA అధ్యయన కేంద్రం</td></tr>
+          <tr><td><b>చన్హుదారో</b></td><td>సింధ్ (పాక్)</td><td>సింధు</td><td>కోట లేని ఏకైక IVC నగరం, సిరా పాత్ర, పూసల కర్మాగారం</td></tr>
+          <tr><td><b>రోపర్</b></td><td>పంజాబ్ (భారత్)</td><td>సట్లెజ్</td><td>స్వాతంత్ర్యానంతర మొదటి తవ్వకం (1953), మనిషితో కలిసి కుక్క సమాధి</td></tr>
+          <tr><td><b>బనావాలి</b></td><td>హర్యానా</td><td>ఘగ్గర్-హక్రా</td><td>ఉత్తమ నాణ్యత బార్లీ, lapis lazuli రాళ్ళు, దిగువ నగరం లేదు</td></tr>
+          <tr><td><b>సుర్కోతడా</b></td><td>గుజరాత్</td><td>కచ్ సమీపంలో</td><td>వివాదాస్పద గుర్రపు ఎముకలు, ప్రత్యేక ఒకే యూనిట్ కోట</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox red" style="margin-top:14px">
+      <div class="hbox-title">అగ్ని బలిపీఠాలు — జాగ్రత్త!</div>
+      "అగ్ని బలిపీఠాలు ఎక్కడ దొరికాయి?" అని అడిగితే — <b>కాలీబంగన్ మాత్రమే</b> అని రాయకండి! <b>కాలీబంగన్ + లోతల్</b> రెండు చోట్లా దొరికాయి. ఇది చాలా సాధారణ పరీక్ష ఉచ్చు.
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "భారతదేశంలో వెలుగుచూసిన ముఖ్యమైన హరప్పా స్థలాలు — హరప్పా, మొహెంజోదారో, లోతల్, కాలీబంగన్, రాఖీగఢి, ధోలావీరా. వీటిలో ధోలావీరా 2021లో UNESCO ప్రపంచ వారసత్వ హోదా పొందింది."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 6 — మతం మరియు ఆరాధన ═══ -->
+<div class="ch-div" id="ch6">
+  <span class="ch-div-num">అధ్యాయం 06</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🕉️</span>
+</div>
+<div class="scard purple">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🕉️</span>
+    <span class="scard-title purple">మతం, ఆరాధన మరియు సమాధి పద్ధతులు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">పరీక్షలో "IVC లో ఆలయాలు ఉన్నాయా?" అని అడిగితే — <b>లేవు!</b> ఒక్క ఆలయం కూడా దొరకలేదు. కానీ వాళ్ళు మతపరంగా ఉన్నారు — మాతృదేవత, అరవట చెట్టు, ప్రోటో-శివుడు ఆరాధించారు. ఇది <span class="r">చాలా ముఖ్యమైన</span> వ్యత్యాసం!</div>
+    </div>
+    <ul class="blist">
+      <li><b>ఆలయాలు:</b> ఒక్కటి కూడా దొరకలేదు — ఖాళీ మైదానాలు లేదా ఇళ్ళలో పూజలు చేసేవారు కావచ్చు</li>
+      <li><b>మాతృదేవత (Mother Goddess):</b> మట్టి బొమ్మలు అన్ని చోట్లా దొరికాయి — సంతానోత్పత్తి దేవత ఆరాధన</li>
+      <li><b>పశుపతి ముద్ర:</b> మొహెంజోదారో — యోగాసనంలో కూర్చున్న పురుషుడు, చుట్టూ జంతువులు — ప్రోటో-శివుడు అని పేరు</li>
+      <li><b>అరవట చెట్టు:</b> ముద్రలపై చిత్రించబడింది — ఇప్పటికీ హిందూ మతంలో, బౌద్ధ మతంలో పవిత్రం</li>
+      <li><b>పూజించిన జంతువులు:</b> ఒంటి కొమ్ము ఎద్దు (Unicorn Bull), ఏనుగు, ముగ్గురు తలల జంతువు</li>
+      <li><b>అగ్ని ఆరాధన:</b> కాలీబంగన్ మరియు లోతల్‌లో అగ్ని బలిపీఠాలు దొరికాయి</li>
+    </ul>
+    <div class="sub-hd" style="margin-top:16px">సమాధి పద్ధతులు</div>
+    <ul class="blist">
+      <li><b>సంపూర్ణ సమాధి:</b> శరీరాన్ని పూర్తిగా పాతిపెట్టడం — దహన సంస్కారం కాదు</li>
+      <li><b>సమాధి వస్తువులు:</b> మట్టి కుండలు, ఆభరణాలు — మరణానంతర జీవితంలో విశ్వాసం</li>
+      <li><b>హరప్పాలో జంట సమాధి వరుసలు:</b> రెండు వరుసల్లో సమాధులు — విలక్షణ లక్షణం</li>
+      <li><b>లోతల్‌లో జంట సమాధి:</b> ఒక పురుషుడు, ఒక స్త్రీ కలిసి పాతిపెట్టబడ్డారు</li>
+    </ul>
+    <div class="source-box">తెలుగు అకాడమీ: "హరప్పా వాసులు మాతృ శక్తిని ఆరాధించేవారని టెర్రాకోట్ బొమ్మలు సూచిస్తున్నాయి. ఆలయాలు లభించలేదు. ఇది వైదిక కాలపు సంస్కృతికి భిన్నమైనది."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 7 — ఆర్థిక వ్యవస్థ ═══ -->
+<div class="ch-div" id="ch7">
+  <span class="ch-div-num">అధ్యాయం 07</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🌾</span>
+</div>
+<div class="scard green">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🌾</span>
+    <span class="scard-title green">ఆర్థిక వ్యవస్థ — వ్యవసాయం మరియు చేతివృత్తులు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="sub-hd">వ్యవసాయం</div>
+    <ul class="blist">
+      <li><b>ప్రధాన పంటలు:</b> గోధుమ, బార్లీ, నువ్వులు, పత్తి — ప్రపంచంలో మొదట పత్తి పండించినవారు IVC వారు!</li>
+      <li><b>రబీ పంటలు:</b> శీతాకాలపు పంటలు — గోధుమ, బార్లీ ముఖ్యమైనవి</li>
+      <li><b>కాలీబంగన్‌లో:</b> దున్నిన పొలం ఆధారాలు దొరికాయి — 4,000+ సంవత్సరాల పురాతన వ్యవసాయ ఆధారం!</li>
+      <li><b>నీటిపారుదల:</b> నేరుగా వర్షాలపై ఆధారపడటం, నదీ వరదలు వాడుకోవడం</li>
+    </ul>
+    <div class="sub-hd" style="margin-top:16px">చేతివృత్తులు మరియు పరిశ్రమలు</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>వృత్తి</th><th>వివరాలు</th><th>ముఖ్య ఆధారం</th></tr></thead>
+        <tbody>
+          <tr><td><b>కుండ తయారీ</b></td><td>ఎరుపు-నలుపు రంగు కుండలు, చక్రంపై తయారు</td><td>అన్ని స్థలాల్లో దొరికాయి</td></tr>
+          <tr><td><b>పూసల తయారీ</b></td><td>కార్నెలియన్, లాపిస్ లాజులి, బంగారం పూసలు</td><td>లోతల్‌లో పెద్ద కర్మాగారం</td></tr>
+          <tr><td><b>తాపీపని</b></td><td>కాల్చిన ఇటుకలు, ఏకరీతి నిర్మాణాలు</td><td>అన్ని నగరాల్లో ఒకే నిష్పత్తి ఇటుకలు</td></tr>
+          <tr><td><b>లోహ పని</b></td><td>రాగి, కంచు పనిముట్లు, ఆభరణాలు</td><td>మోమ్ వాక్స్ పద్ధతి (cire-perdue)</td></tr>
+          <tr><td><b>పత్తి నేత</b></td><td>ప్రపంచ మొదటి పత్తి వస్త్రాలు</td><td>గ్రీస్‌లో "sindon" = సింధు నుండి</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox copper">
+      <div class="hbox-title">పరీక్ష ముఖ్యాంశం</div>
+      "పత్తిని మొదట ఎవరు పండించారు?" — IVC వారు. గ్రీసులో పత్తిని "sindon" అంటారు — ఇది "సింధు" నుండి వచ్చింది. భారత్ నుండి పత్తి వాణిజ్యం ఋజువు!
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 8 — వాణిజ్యం ═══ -->
+<div class="ch-div" id="ch8">
+  <span class="ch-div-num">అధ్యాయం 08</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🚢</span>
+</div>
+<div class="scard teal">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🚢</span>
+    <span class="scard-title teal">వాణిజ్యం — దేశీయ మరియు అంతర్జాతీయ</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">IVC వాళ్ళు <b>4,000 సంవత్సరాల క్రితమే</b> మెసపొటేమియా (ఇప్పటి ఇరాక్)తో సముద్ర వాణిజ్యం చేసేవారు! మెసపొటేమియా రాత వ్యాఖ్యలలో IVC ని <b>"మేలుహా"</b> అని పిలుస్తారు. ఇది తప్పకుండా పరీక్షలో వస్తుంది.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>వాణిజ్య భాగస్వామి</th><th>IVC ఎగుమతి చేసినది</th><th>IVC దిగుమతి చేసుకున్నది</th><th>ఆధారం</th></tr></thead>
+        <tbody>
+          <tr><td><b>మెసపొటేమియా (సుమేర్)</b></td><td>పత్తి, పూసలు, కార్నెలియన్, రాగి</td><td>టిన్, వెండి, lapis lazuli</td><td>క్యూనిఫారమ్ రాతలలో "మేలుహా" ప్రస్తావన</td></tr>
+          <tr><td><b>ఒమాన్ / పర్షియన్ గల్ఫ్</b></td><td>కార్నెలియన్ పూసలు, దంతం</td><td>రాగి గట్టలు</td><td>బహ్రెయిన్‌లో లోతల్ పూస అచ్చులు దొరికాయి</td></tr>
+          <tr><td><b>దక్షిణ భారతదేశం</b></td><td>రాగి పనిముట్లు, తూనికలు</td><td>బంగారం, రత్నాలు</td><td>లోతల్‌లో దక్షిణ భారత బంగారం దొరికింది</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox teal">
+      <div class="hbox-title">మేలుహా — పరీక్ష సూపర్ టిప్</div>
+      "మెసపొటేమియా రాతలలో IVC ప్రాంతానికి వాడిన పేరు?" — <b>మేలుహా (Meluha)</b>. ఇది అంతర్జాతీయ వాణిజ్యానికి నేరు ఆధారం. హార్డ్ లెవెల్ ప్రశ్న.
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "సింధు నాగరికత వాసులు మెసపొటేమియాతో సముద్ర వాణిజ్యం నిర్వహించేవారు. క్యూనిఫారమ్ పత్రాలలో మేలుహాతో వాణిజ్యం గురించి ప్రస్తావన కనిపిస్తుంది."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 9 — కళలు మరియు శిల్పాలు ═══ -->
+<div class="ch-div" id="ch9">
+  <span class="ch-div-num">అధ్యాయం 09</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🎨</span>
+</div>
+<div class="scard purple">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🎨</span>
+    <span class="scard-title purple">కళ, శిల్పాలు, కుండలు మరియు కళాకృతులు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>కళాకృతి</th><th>దొరికిన స్థలం</th><th>పదార్థం</th><th>విలక్షణ వివరాలు</th></tr></thead>
+        <tbody>
+          <tr><td><b>నృత్యగత్తె విగ్రహం</b></td><td>మొహెంజోదారో</td><td>కంచు (మోమ్ వాక్స్ పద్ధతి)</td><td>10.5 సెం.మీ, ఎడమ చేతిలో గాజులు, మెడలో హారం. జాతీయ మ్యూజియం ఢిల్లీలో ఉంది</td></tr>
+          <tr><td><b>పురోహిత రాజు విగ్రహం</b></td><td>మొహెంజోదారో</td><td>స్టెటైట్ (రాయి)</td><td>ట్రెఫాయిల్ డిజైన్ పై వస్త్రం, అర్ధ మూసిన కళ్ళు</td></tr>
+          <tr><td><b>పశుపతి ముద్ర</b></td><td>మొహెంజోదారో</td><td>స్టెటైట్</td><td>యోగాసనంలో పురుషుడు, చుట్టూ జంతువులు — ప్రోటో-శివుడు</td></tr>
+          <tr><td><b>ఒంటి కొమ్ము ఎద్దు ముద్ర</b></td><td>అన్ని ప్రధాన స్థలాల్లో</td><td>స్టెటైట్</td><td>అత్యంత సాధారణ ముద్ర — పరీక్షలో తరచుగా వస్తుంది</td></tr>
+          <tr><td><b>మాతృదేవత బొమ్మలు</b></td><td>అన్ని స్థలాల్లో</td><td>మట్టి (టెర్రాకోట్)</td><td>సంతానోత్పత్తి దేవత, స్త్రీ ఆధిపత్య సమాజ సూచన</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox red" style="margin-top:12px">
+      <div class="hbox-title">ముద్రలపై లేని జంతువులు — ఉచ్చు ప్రశ్న!</div>
+      ముద్రలపై ఉన్నవి: ఒంటి కొమ్ము ఎద్దు, ఏనుగు, ఖడ్గమృగం, పులి, మొసలి. <br>
+      <b>ముద్రలపై లేనివి: ఆవు, సింహం, గుర్రం</b> — ఆవు భారతదేశంలో పవిత్రమైనప్పటికీ IVC ముద్రలపై లేదు!
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "మొహెంజోదారో నుండి లభించిన కాంస్య విగ్రహం (నృత్యగత్తె) హరప్పా కళాకారుల అద్భుత నైపుణ్యానికి నిదర్శనం. మేణపు పోత (cire-perdue) పద్ధతిలో తయారు చేయబడింది."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 10 — లిపి ═══ -->
+<div class="ch-div" id="ch10">
+  <span class="ch-div-num">అధ్యాయం 10</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🔤</span>
+</div>
+<div class="scard blue">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🔤</span>
+    <span class="scard-title blue">లిపి, భాష మరియు రాత వ్యవస్థ</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">IVC లిపి — చరిత్రలో అత్యంత <b>రహస్యమైన</b> లిపి! 100 సంవత్సరాలు ప్రయత్నించినా ఇంకా అర్థం కాలేదు. కానీ పరీక్షలో దీని గురించి చాలా అడుగుతారు. <span class="g">"అర్థం అయిందా లేదా?"</span> అని అడిగితే — <b>లేదు!</b> ఇది తప్పనిసరిగా గుర్తుపెట్టుకోండి.</div>
+    </div>
+    <ul class="blist">
+      <li><b>లిపి రకం:</b> చిత్ర-అక్షర లిపి (Pictographic / Logo-Syllabic) — 400+ సంకేతాలు</li>
+      <li><b>రాత దిశ:</b> కుడి నుండి ఎడమకు (Right to Left) — ప్రధాన దిశ</li>
+      <li><b>విఫలమైన అర్థ ప్రయత్నాలు:</b> 100 సంవత్సరాలు, వందల విద్వాంసులు — ఇంకా విఫలం</li>
+      <li><b>2024-25 AI అధ్యయనం:</b> IIT గాంధీనగర్ — ప్రోటో-ద్రావిడ భాష అని అనుమానం</li>
+      <li><b>AP/తెలంగాణ ప్రాసంగికత:</b> ప్రోటో-ద్రావిడ = తెలుగు, తమిళ, కన్నడ పూర్వరూపం అయి ఉండవచ్చు!</li>
+      <li><b>ధోలావీరా శాసనం:</b> ఉత్తర ద్వారంలో 10 చిహ్నాల వరుస — అతిపెద్ద IVC శాసనం</li>
+    </ul>
+    <div class="hbox teal">
+      <div class="hbox-title">ఆంధ్ర అభ్యర్థులకు ప్రత్యేక గమనిక</div>
+      AI అధ్యయనాలు IVC లిపి <b>ప్రోటో-ద్రావిడ భాష</b> అని సూచిస్తున్నాయి. అంటే మన తెలుగు భాషకు పూర్వీకులు IVC వారు అయి ఉండవచ్చు! ఇది AP/తెలంగాణ అస్తిత్వ సాంస్కృతిక ప్రశ్నగా వస్తోంది.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 11 — సామాజిక జీవితం ═══ -->
+<div class="ch-div" id="ch11">
+  <span class="ch-div-num">అధ్యాయం 11</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">👥</span>
+</div>
+<div class="scard copper">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">👥</span>
+    <span class="scard-title copper">సామాజిక జీవితం, దుస్తులు, ఆహారం</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <ul class="blist">
+      <li><b>సమాజ నిర్మాణం:</b> వ్యాపారులు / ఏలిన పురోహితులు పాలించేవారు — రాజు దొరకలేదు (రాచరిక పాలన లేదు)</li>
+      <li><b>స్త్రీ స్థానం:</b> మాతృదేవత ఆరాధన ఉన్నందున స్త్రీ స్థానం ముఖ్యమైనదని అనుమానం</li>
+      <li><b>దుస్తులు:</b> పత్తి వస్త్రాలు — ప్రపంచంలో మొదటి పత్తి దుస్తులు వారికే!</li>
+      <li><b>ఆభరణాలు:</b> బంగారం, వెండి, రాగి, కార్నెలియన్, lapis lazuli పూసలు — స్త్రీ, పురుష ఇద్దరూ ధరించేవారు</li>
+      <li><b>ఆహారం:</b> గోధుమ, బార్లీ రొట్టె, మాంసం (చేపలు, పక్షులు), కూరగాయలు</li>
+      <li><b>వినోదం:</b> చదరంగం లాంటి ఆటలు, బొమ్మలు, వాయిద్యాలు (మట్టి రాటిల్లు)</li>
+    </ul>
+    <div class="hbox copper">
+      <div class="hbox-title">ప్రభుత్వ రకం — పరీక్ష ప్రశ్న</div>
+      "IVC ప్రభుత్వ రకం?" — <b>వ్యాపారుల పాలన (Merchant Oligarchy) లేదా మతపాలన (Theocracy)</b>. రాజు లేదు, ఎందుకంటే అరమనెలు, రాచరిక సమాధులు, రాజు పేరు శాసనాలు ఏవీ దొరకలేదు.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 12 — సాంకేతికత ═══ -->
+<div class="ch-div" id="ch12">
+  <span class="ch-div-num">అధ్యాయం 12</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">⚙️</span>
+</div>
+<div class="scard gold">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">⚙️</span>
+    <span class="scard-title gold">సాంకేతికత — లోహాలు, తూనికలు, పనిముట్లు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">రెండు ముఖ్యమైన విషయాలు: ఒకటి — IVC వారికి <b>ఇనుము తెలియదు</b>. రెండు — వారి తూనికలు <b>16 గుణిజాలలో</b> ఉన్నాయి. ఈ రెండూ పరీక్షలో తప్పకుండా వస్తాయి.</div>
+    </div>
+    <ul class="blist">
+      <li><b>ఉపయోగించిన లోహాలు:</b> రాగి (Copper), కంచు (Bronze), బంగారు (Gold), వెండి (Silver)</li>
+      <li><b>లేని లోహం:</b> <span class="kwr">ఇనుము (Iron) — ఒక్క IVC స్థలంలోనూ దొరకలేదు!</span> ఇది IVC = కాంస్య యుగం (Chalcolithic) అని నిరూపిస్తుంది</li>
+      <li><b>తూనికలు:</b> చెర్ట్ రాయితో చేసిన క్యూబ్ ఆకారపు తూనికలు — 16 యొక్క గుణిజాల వ్యవస్థ (1,2,4,8,16,32,64...)</li>
+      <li><b>కొలత పద్ధతి:</b> ఇనుప తూనికల వంటి ఖచ్చితమైన వ్యవస్థ — వ్యాపారానికి అవసరం</li>
+      <li><b>కంచు పోత పద్ధతి:</b> మేణపు పోత (Cire-perdue / Lost Wax) — నృత్యగత్తె విగ్రహం ఇలాగే తయారైంది</li>
+    </ul>
+    <div class="hbox red">
+      <div class="hbox-title">IVC = కాంస్య యుగం — ఉచ్చు!</div>
+      "IVC ఏ యుగానికి చెందింది?" — <b>తాంబ్ర-శిలా యుగం లేదా కాంస్య యుగం (Chalcolithic / Bronze Age)</b>. "లోహ యుగం" అని రాయకండి — ఇనుము లేదు కాబట్టి "ఇనుప యుగం" (Iron Age) కాదు.
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "హరప్పా వాసులు రాగి, కంచు పనిముట్లు ఉపయోగించేవారు. ఇనుపను వారికి తెలియదు. వారి తూనికలు 16 యొక్క గుణిజాల ఆధారంగా ఉన్నాయి."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 13 — పతనం ═══ -->
+<div class="ch-div" id="ch13">
+  <span class="ch-div-num">అధ్యాయం 13</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🌅</span>
+</div>
+<div class="scard red">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🌅</span>
+    <span class="scard-title red">పతనం — అన్ని సిద్ధాంతాల పోలిక</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">IVC ఎందుకు పతనమైందో ఇంకా <b>ఖచ్చితంగా తెలియదు</b>. పరీక్షలో "ఏ సిద్ధాంతం సరైనది?" అని అడిగితే — "బహుళ కారణాల వల్ల (Multicausal)" అనేది సురక్షితమైన జవాబు. ఒక్క కారణం మాత్రమే అని రాయకండి.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>సిద్ధాంతం</th><th>ప్రతిపాదించినవారు</th><th>ఆధారాలు</th><th>స్థితి</th></tr></thead>
+        <tbody>
+          <tr><td><b>ఆర్య దండయాత్ర</b></td><td>R.E.M. వీలర్ (1947)</td><td>వేద గ్రంథాలు, మొహెంజోదారో అస్థిపంజరాలు</td><td class="kwr">ఎక్కువగా తిరస్కరించబడింది — అస్థిపంజరాలు వేర్వేరు కాలాలకు చెందినవి</td></tr>
+          <tr><td><b>వాతావరణ మార్పు/కరువు</b></td><td>గియోసాన్ (2012), IIT ఖరగ్పూర్ (2016)</td><td>ఘగ్గర్-హక్రా నది ఎండిపోవడం, మానసూన్ బలహీనపడటం</td><td class="kwg">ఇప్పుడు అత్యంత ఆమోదించబడిన సిద్ధాంతం</td></tr>
+          <tr><td><b>నది మళ్ళింపు</b></td><td>వివిధ భూగర్భ శాస్త్రవేత్తలు</td><td>మొహెంజోదారోలో 7 వరద పొరలు</td><td class="kwt">పాక్షికంగా ఆమోదించబడింది</td></tr>
+          <tr><td><b>వాణిజ్య పతనం</b></td><td>ఆర్థిక చరిత్రకారులు</td><td>మెసపొటేమియా 3వ ఉర్ రాజవంశం (~2000 BCE) పతనం</td><td class="kwt">ముఖ్యమైన సహాయక కారణం</td></tr>
+          <tr><td><b>అంటువ్యాధులు</b></td><td>జనాభా శాస్త్రవేత్తలు</td><td>కొన్ని స్థలాల్లో మలేరియా ఆధారాలు</td><td class="kwt">పాక్షిక కారణం కావచ్చు</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hbox green" style="margin-top:12px">
+      <div class="hbox-title">2024 కొత్త శాస్త్రీయ ఆధారం</div>
+      2024 అధ్యయనం నిర్ధారించింది: <b>300 సంవత్సరాల భయంకర కరువు</b> (క్రీ.పూ. 2,200–1,900) IVC పతనానికి ప్రధాన కారణం. రాజస్థాన్ గుహల్లో స్పెలియోథెమ్ (cave mineral) రికార్డులు ఇది నిరూపించాయి.
+    </div>
+    <div class="hbox teal">
+      <div class="hbox-title">IVC అంతరించిపోలేదు!</div>
+      2019 మరియు 2025 DNA అధ్యయనాలు చెప్తున్నాయి: IVC వారు <b>తూర్పు మరియు దక్షిణ దిశగా వలస వెళ్ళారు</b>. ఆధునిక దక్షిణ ఆసియన్లలో <b>50-70% జన్యు వారసత్వం</b> IVC నుండే వచ్చింది. వారు అంతరించిపోలేదు — మనలో ఇంకా జీవిస్తున్నారు!
+    </div>
+    <div class="source-box">తెలుగు అకాడమీ: "సింధు నాగరికత పతనానికి ఖచ్చితమైన కారణం ఇంకా నిర్ణయించబడలేదు. వాతావరణ మార్పులు, నది మళ్ళింపు, వాణిజ్య తగ్గుదల వంటి బహుళ కారణాలు ఉండవచ్చు అని చరిత్రకారులు అభిప్రాయపడుతున్నారు."</div>
+  </div>
+</div>
+
+<!-- ═══ CH 14 — వారసత్వం ═══ -->
+<div class="ch-div" id="ch14">
+  <span class="ch-div-num">అధ్యాయం 14</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🌺</span>
+</div>
+<div class="scard copper">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🌺</span>
+    <span class="scard-title copper">వారసత్వం, DNA అధ్యయనం మరియు AP/తెలంగాణ సంబంధం</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">ఈ అధ్యాయం <span class="t">మన అస్తిత్వానికి</span> సంబంధించినది. IVC వారు మన పూర్వీకులు కావచ్చు! DNA శాస్త్రం ఇది నిరూపిస్తోంది. APPSC మరియు TSPSC పరీక్షల్లో ఈ విషయం ప్రాసంగికంగా అడగవచ్చు.</div>
+    </div>
+    <div class="sub-hd">IVC వారసత్వం — జీవించే సాంస్కృతిక వారసత్వం</div>
+    <ul class="blist">
+      <li><b>మాతృదేవత → దేవి ఆరాధన:</b> ఇప్పటి దుర్గ, లక్ష్మి, సరస్వతి ఆరాధన — IVC నుండి వచ్చింది</li>
+      <li><b>పశుపతి ముద్ర → శైవ మతం:</b> IVC ప్రోటో-శివుడు → ఇప్పటి శివుడు — ఒకే సంస్కృతి!</li>
+      <li><b>అరవట చెట్టు → పవిత్రత:</b> హిందూ మతం, బౌద్ధ మతం రెండిట్లోనూ అరవట చెట్టు పవిత్రం — IVC కాలం నుండి!</li>
+      <li><b>యోగ భంగిమలు:</b> IVC ముద్రలపై యోగాసనాల్లో వ్యక్తులు — యోగ సంప్రదాయం IVC లో ప్రారంభమైందా?</li>
+      <li><b>పట్టణ ప్రణాళిక:</b> మౌర్య సామ్రాజ్యపు పాటలీపుత్రలో IVC పట్టణ ప్రణాళిక ప్రభావం కనిపిస్తుంది</li>
+    </ul>
+    <div class="sub-hd" style="margin-top:16px">DNA అధ్యయన ఫలితాలు (2025)</div>
+    <div class="hbox teal">
+      <div class="hbox-title">Science Advances 2025 — ముఖ్య ఫలితాలు</div>
+      రాఖీగఢి, ఫర్మాన, లోతల్ తదితర స్థలాల నుండి 180+ పురాతన DNA నమూనాలు విశ్లేషించారు. ఆధునిక దక్షిణ ఆసియన్లలో (భారత్, పాక్, బంగ్లా) <b>50–70% జన్యు వారసత్వం</b> IVC కాల జనాభా నుండి వచ్చింది. IVC వారు అంతరించిపోలేదు — మనలో జీవిస్తున్నారు!
+    </div>
+    <div class="hbox copper">
+      <div class="hbox-title">AP/తెలంగాణ ప్రత్యేక సంబంధం</div>
+      IVC లిపి ప్రోటో-ద్రావిడ భాష అని AI అధ్యయనాలు సూచిస్తున్నాయి. ద్రావిడ భాషా కుటుంబంలో తెలుగు కూడా ఉంది. అంటే <b>తెలుగు భాష మూలాలు IVC కాలానికి</b> వెళతాయి కావచ్చు. ఇది మన రాష్ట్ర అస్తిత్వానికి సంబంధించిన గర్వించదగిన విషయం!
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 15 — ఉచ్చు డీకోడర్ ═══ -->
+<div class="ch-div" id="ch15">
+  <span class="ch-div-num">అధ్యాయం 15</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">⚠️</span>
+</div>
+<div class="scard red">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">⚠️</span>
+    <span class="scard-title red">ఉచ్చు డీకోడర్ — 12 ప్రాణాంతక తప్పులు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">విద్యార్థులారా, ఈ ఉచ్చులు పరీక్షలో <b>ప్రతి సంవత్సరం</b> వస్తాయి. చాలా తెలివైన విద్యార్థులు కూడా ఇక్కడ మార్కులు పోగొట్టుకుంటారు. <span class="r">తప్పు జవాబు</span> చదివి, <span class="g">సరైన జవాబు</span> బాగా గుర్తుపెట్టుకోండి.</div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 01</div>
+      <div class="trap-head">ఇనుప పనిముట్లు</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC వారు ఇనుప పనిముట్లు వాడేవారు"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">IVC లో ఇనుము <b>పూర్తిగా లేదు</b> — కాంస్య/రాగి యుగం మాత్రమే. ఇనుప యుగం తర్వాత వైదిక కాలంలో వచ్చింది.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 02</div>
+      <div class="trap-head">గుర్రం</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC లో గుర్రం ముఖ్యమైన జంతువు"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">గుర్రం = వైదిక నాగరికత. IVC లో గుర్రం ఉన్నట్టు ఖచ్చితమైన ఆధారాలు లేవు. మూపురపు ఎద్దు (Humped Bull) IVC ముఖ్య జంతువు.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 03</div>
+      <div class="trap-head">ఆలయాలు</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC లో ఆలయాలు కనుగొనబడ్డాయి"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">ఒక్క ఆలయం కూడా దొరకలేదు. కానీ మతపరంగా ఉన్నారు — మాతృదేవత ఆరాధన, అగ్ని బలిపీఠాలు ఉన్నాయి.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 04</div>
+      <div class="trap-head">కనుగొన్న వ్యక్తి తారుమారు</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"దయారామ్ సాహ్ని మొహెంజోదారో కనుగొన్నారు"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">సాహ్ని = హరప్పా (1921). బెనర్జీ = మొహెంజోదారో (1922). ఈ రెండూ గందరగోళపడకండి!</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 05</div>
+      <div class="trap-head">లోతల్ స్థానం</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"లోతల్ అరేబియా సముద్రతీరంలో ఉంది"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">లోతల్ <b>ఖంభాట్ సింధుశాఖ</b> సమీపంలో ఉంది (అరేబియా సముద్రం యొక్క ఒక సందు). నేరుగా అరేబియా సముద్రం మీద కాదు!</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 06</div>
+      <div class="trap-head">గ్రామీణ నాగరికత</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC గ్రామీణ నాగరికత"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">IVC ఒక <b>పట్టణ నాగరికత (Urban Civilization)</b>. పెద్ద నగరాలు, ప్రణాళికాబద్ధ వీధులు, మురుగు వ్యవస్థ — అన్నీ పట్టణ లక్షణాలు.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 07</div>
+      <div class="trap-head">ముద్రలపై జంతువులు</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC ముద్రలపై సింహం ఉంది"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">పులి ఉంది, <b>సింహం లేదు</b>. ఆవు, గుర్రం, సింహం — మూడూ IVC ముద్రలపై లేవు.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 08</div>
+      <div class="trap-head">మురుగు ప్రవాహ దిశ</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"దిగువ నగరం నుండి ఉన్నత నగరానికి మురుగు ప్రవహిస్తుంది"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">ఇల్లు → సందు → ప్రధాన వీధి కాలువ. ఈ క్రమం చదవడం మూడుసార్లు నిద్రలో కూడా చెప్పగలిగేంతగా గుర్తుపెట్టుకోండి!</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 09</div>
+      <div class="trap-head">అతిపెద్ద నగరం</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"మొహెంజోదారో భారతదేశంలో అతిపెద్ద IVC నగరం"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">మొహెంజోదారో పాకిస్థాన్‌లో ఉంది. <b>భారతదేశంలో అతిపెద్ద IVC స్థలం = రాఖీగఢి (హర్యానా)</b> — 350 హెక్టార్లు.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 10</div>
+      <div class="trap-head">అగ్ని బలిపీఠాలు ఎక్కడ?</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"అగ్ని బలిపీఠాలు కాలీబంగన్ లో మాత్రమే"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right"><b>కాలీబంగన్ + లోతల్</b> — రెండు చోట్లా అగ్ని బలిపీఠాలు. "కల్-లో" = KL అని గుర్తుపెట్టుకోండి!</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 11</div>
+      <div class="trap-head">లిపి అర్థమైందా?</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC లిపి అర్థం అయింది"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right">100 సంవత్సరాలు ప్రయత్నించినా <b>ఇంకా అర్థం కాలేదు</b>. చిత్ర-అక్షర లిపి (Pictographic), 400+ సంకేతాలు.</span></div>
+    </div>
+    <div class="trap-card">
+      <div class="trap-num">ఉచ్చు 12</div>
+      <div class="trap-head">IVC = ఇనుప యుగం</div>
+      <div class="trap-row"><span class="trap-icon">❌</span><span class="trap-wrong">"IVC ఇనుప యుగానికి చెందింది"</span></div>
+      <div class="trap-row"><span class="trap-icon">✅</span><span class="trap-right"><b>తాంబ్ర-శిలా యుగం (Chalcolithic / Bronze Age)</b>. ఇనుప యుగం IVC తర్వాత వైదిక కాలంలో వచ్చింది.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 16 — మాస్టర్ పట్టికలు ═══ -->
+<div class="ch-div" id="ch16">
+  <span class="ch-div-num">అధ్యాయం 16</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">📊</span>
+</div>
+<div class="scard gold">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">📊</span>
+    <span class="scard-title gold">మాస్టర్ పట్టికలు — అన్ని కీలక డేటా ఒకే చోట</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="sub-hd">పట్టిక 1: తవ్వకాల వ్యక్తులు</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>స్థలం</th><th>తవ్విన వ్యక్తి</th><th>సంవత్సరం</th><th>ముఖ్య ఆవిష్కరణ</th></tr></thead>
+        <tbody>
+          <tr><td><b>హరప్పా</b></td><td>దయారామ్ సాహ్ని</td><td>1921</td><td>ధాన్యాగారాలు, జంట సమాధులు</td></tr>
+          <tr><td><b>మొహెంజోదారో</b></td><td>R.D. బెనర్జీ</td><td>1922</td><td>గొప్ప స్నానవాటిక, నృత్యగత్తె</td></tr>
+          <tr><td><b>హరప్పా (మళ్ళీ)</b></td><td>R.E.M. వీలర్</td><td>1944</td><td>వ్యవస్థాగత తవ్వకాలు</td></tr>
+          <tr><td><b>లోతల్</b></td><td>S.R. రావు</td><td>1957–63</td><td>ఓడరేవు, అగ్ని బలిపీఠాలు</td></tr>
+          <tr><td><b>కాలీబంగన్</b></td><td>B.K. థాపర్, B.B. లాల్</td><td>1960–69</td><td>అగ్ని బలిపీఠాలు, దున్నిన పొలం</td></tr>
+          <tr><td><b>ధోలావీరా</b></td><td>R.S. బిష్ట్</td><td>1989–2005</td><td>3 భాగాల నగరం, శాసనం</td></tr>
+          <tr><td><b>రోపర్</b></td><td>Y.D. శర్మ</td><td>1953</td><td>స్వాతంత్ర్యానంతర మొదటి తవ్వకం</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-hd" style="margin-top:18px">పట్టిక 2: స్థలం-విలక్షణత సరిపోల్చుట</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>స్థలం</th><th>విలక్షణ ఆవిష్కరణ</th><th>వివరం</th></tr></thead>
+        <tbody>
+          <tr><td><b>మొహెంజోదారో</b></td><td>గొప్ప స్నానవాటిక</td><td>జిప్సం సిమెంటుతో కట్టబడింది — సిమెంటు కాదు!</td></tr>
+          <tr><td><b>హరప్పా</b></td><td>ధాన్యాగారాలు</td><td>రెండు వరుసల్లో 6 ధాన్యాగారాలు</td></tr>
+          <tr><td><b>లోతల్</b></td><td>ఓడరేవు (Dockyard)</td><td>224 × 37 మీ, సముద్ర వాణిజ్య కేంద్రం</td></tr>
+          <tr><td><b>కాలీబంగన్</b></td><td>అగ్ని బలిపీఠాలు + దున్నిన పొలం</td><td>భూకంప ఆధారాలు కూడా ఉన్నాయి</td></tr>
+          <tr><td><b>ధోలావీరా</b></td><td>UNESCO WHS 2021</td><td>3 భాగాల నగరం, 16 నీటి జలాశయాలు</td></tr>
+          <tr><td><b>రాఖీగఢి</b></td><td>భారత్ లో అతిపెద్దది</td><td>350 హె., DNA అధ్యయన కేంద్రం</td></tr>
+          <tr><td><b>చన్హుదారో</b></td><td>కోట లేదు</td><td>IVC లో కోట లేని ఏకైక నగరం</td></tr>
+          <tr><td><b>రోపర్</b></td><td>కుక్క సమాధి</td><td>మనిషితో కలిసి కుక్క పాతిపెట్టబడింది</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-hd" style="margin-top:18px">పట్టిక 3: అంచు స్థలాలు</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>దిక్కు</th><th>స్థలం</th><th>రాష్ట్రం</th><th>నది</th></tr></thead>
+        <tbody>
+          <tr><td><span class="kwg">ఉత్తరం</span></td><td><b>మండ</b></td><td>జమ్మూ కాశ్మీర్</td><td>చీనాబ్</td></tr>
+          <tr><td><span class="kwr">దక్షిణం</span></td><td><b>దైమాబాద్</b></td><td>మహారాష్ట్ర</td><td>ప్రవర</td></tr>
+          <tr><td><span class="kwb">పశ్చిమం</span></td><td><b>సుత్కగెందోర్</b></td><td>బలూచిస్థాన్ (పాక్)</td><td>దాష్ట్</td></tr>
+          <tr><td><span class="kw">తూర్పు</span></td><td><b>ఆలంగీర్‌పూర్</b></td><td>ఉత్తర ప్రదేశ్</td><td>హిందోన్</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 17 — నిజమైన APPSC PYQలు ═══ -->
+<div class="ch-div" id="ch17">
+  <span class="ch-div-num">అధ్యాయం 17</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">📝</span>
+</div>
+<div class="scard teal">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">📝</span>
+    <span class="scard-title teal">APPSC నిజమైన PYQలు — తెలుగులో వివరణతో</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="hbox teal" style="margin-bottom:16px">
+      <div class="hbox-title">వ్యూహం</div>
+      ముందు సొంతంగా జవాబు ఎంచుకోండి. తర్వాత వివరణ చదవండి. తప్పు జవాబు ఎంచుకుంటే — ఆ వివరణ మళ్ళీ మళ్ళీ చదవండి. <b>ఇక్కడ తప్పు = పరీక్షలో మార్కు నిలుపుదల!</b>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper sc">APPSC G-2 స్క్రీనింగ్</span><span class="pyq-yr">2019</span><span class="pyq-type">MCQ</span></div>
+      <div class="pyq-body" id="pq1">
+        <div class="pyq-q">సింధు లోయ నాగరికత లిపి గురించి సరైన వాక్యం ఏది?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) చిత్ర లిపి, అర్థం అయింది</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">B) అక్షర లిపి, అర్థం అయింది</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">C) చిత్ర లిపి, అర్థం కాలేదు</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) వర్ణమాల లిపి, అర్థం కాలేదు</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: C</b> — IVC లిపి చిత్ర-అక్షర లిపి (Pictographic), 400+ చిహ్నాలు ఉన్నాయి. 100 సంవత్సరాలు ప్రయత్నించినా ఇంకా అర్థం కాలేదు. "వర్ణమాల లిపి" అని రాయకండి — అది తప్పు.</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper g1">APPSC G-1 ప్రిలిమ్స్</span><span class="pyq-yr">2020</span><span class="pyq-type">మ్యాచ్</span></div>
+      <div class="pyq-body" id="pq2">
+        <div class="pyq-q">సరిపోల్చుము: 1.మొహెంజోదారో 2.హరప్పా 3.లోతల్ 4.కాలీబంగన్ — A.ఓడరేవు B.అగ్ని బలిపీఠాలు C.గొప్ప స్నానవాటిక D.జంట సమాధులు</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) 1-A, 2-D, 3-B, 4-C</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">B) 1-C, 2-D, 3-A, 4-B</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">C) 1-C, 2-A, 3-D, 4-B</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) 1-B, 2-C, 3-A, 4-D</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: B</b> — మొహెంజోదారో=గొప్ప స్నానవాటిక(C), హరప్పా=జంట సమాధులు(D), లోతల్=ఓడరేవు(A), కాలీబంగన్=అగ్ని బలిపీఠాలు(B). ఈ మ్యాచ్ ప్రతి 2 సంవత్సరాలకు వస్తుంది!</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper sc">APPSC G-2 స్క్రీనింగ్</span><span class="pyq-yr">2022</span><span class="pyq-type">MCQ</span></div>
+      <div class="pyq-body" id="pq3">
+        <div class="pyq-q">ధోలావీరా హరప్పా స్థలం ఏ రాష్ట్రంలో ఉంది?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) రాజస్థాన్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">B) పంజాబ్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">C) గుజరాత్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) హర్యానా</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: C — గుజరాత్</b> — ధోలావీరా రాన్ ఆఫ్ కచ్‌లోని ఖాదిర్ దీవిలో ఉంది. 2021లో UNESCO WHS హోదా వచ్చింది. భారతదేశంలో అతిపెద్ద IVC స్థలం. కాలీబంగన్ (రాజస్థాన్) తో గందరగోళపడకండి!</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper sc">APPSC G-2 స్క్రీనింగ్</span><span class="pyq-yr">2021</span><span class="pyq-type">MCQ</span></div>
+      <div class="pyq-body" id="pq4">
+        <div class="pyq-q">IVC ముద్రలపై ఏ జంతువు చిత్రించబడలేదు?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) ఒంటి కొమ్ము ఎద్దు</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">B) ఆవు</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">C) ఖడ్గమృగం</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) పులి</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: B — ఆవు</b> — ముద్రలపై ఉన్నవి: ఒంటి కొమ్ము ఎద్దు, ఏనుగు, ఖడ్గమృగం, పులి, మొసలి. ఆవు, సింహం, గుర్రం — మూడూ లేవు. ఆవు భారతదేశంలో పవిత్రమైనా IVC ముద్రలపై లేదు!</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper g1">APPSC G-1 ప్రిలిమ్స్</span><span class="pyq-yr">2023</span><span class="pyq-type">MCQ</span></div>
+      <div class="pyq-body" id="pq5">
+        <div class="pyq-q">IVC నృత్యగత్తె కంచు విగ్రహం ఏ స్థలంలో దొరికింది?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) హరప్పా</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">B) మొహెంజోదారో</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">C) లోతల్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) కాలీబంగన్</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: B — మొహెంజోదారో</b> — 10.5 సెం.మీ కంచు నృత్యగత్తె మొహెంజోదారో లో దొరికింది. మేణపు పోత పద్ధతిలో తయారైంది. ఇప్పుడు జాతీయ మ్యూజియం, న్యూ ఢిల్లీలో ఉంది.</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper sc">APPSC G-2 స్క్రీనింగ్</span><span class="pyq-yr">2016</span><span class="pyq-type">వాక్యాలు</span></div>
+      <div class="pyq-body" id="pq6">
+        <div class="pyq-q">క్రింది వాక్యాలను పరీక్షించండి: 1) IVC వారికి ఇనుము తెలియదు. 2) IVC వారు అరవట చెట్టును ఆరాధించారు. 3) IVC వారికి మెసపొటేమియాతో సంబంధం లేదు. ఏవి సరైనవి?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) 1 మరియు 3 మాత్రమే</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">B) 1 మరియు 2 మాత్రమే</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">C) 2 మరియు 3 మాత్రమే</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) 1, 2 మరియు 3</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: B</b> — వాక్యం 1 సరైనది (ఇనుము లేదు). వాక్యం 2 సరైనది (అరవట చెట్టు ఆరాధన ముద్రలలో ఉంది). వాక్యం 3 తప్పు — IVC మెసపొటేమియాతో "మేలుహా" పేరుతో చురుకైన సముద్ర వాణిజ్యం చేసింది.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 18 — అభ్యాస విభాగం ═══ -->
+<div class="ch-div" id="ch18">
+  <span class="ch-div-num">అధ్యాయం 18</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🧩</span>
+</div>
+<div class="scard copper">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🧩</span>
+    <span class="scard-title copper">అభ్యాస విభాగం + జ్ఞాపక సూత్రాలు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="sub-hd">7 మాస్టర్ జ్ఞాపక సూత్రాలు</div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 1 — IVC లో లేనివి</div>
+      <div class="mnemo-body"><span class="mnemo-key">No THIK</span><br>
+      <b>T</b>emple (ఆలయాలు) — లేవు<br>
+      <b>H</b>orse (గుర్రం) — లేదు<br>
+      <b>I</b>ron (ఇనుము) — లేదు<br>
+      <b>K</b>ing (రాజు) — దొరకలేదు<br>
+      IVC లో "No THIK" — ఈ నాలుగూ లేవు!</div>
+    </div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 2 — కనుగొన్న వ్యక్తులు</div>
+      <div class="mnemo-body"><span class="mnemo-key">SAME</span><br>
+      <b>S</b>ahni = హరప్పా (1921)<br>
+      <b>A</b>SI ఆధ్వర్యంలో<br>
+      <b>M</b>arshall = "సింధు లోయ నాగరికత" పేరు (1924)<br>
+      <b>E</b>xcavation of Mohenjo = బెనర్జీ (1922)<br></div>
+    </div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 3 — అగ్ని బలిపీఠాలు</div>
+      <div class="mnemo-body"><span class="mnemo-key">కల్-లో = KL</span><br>
+      <b>K</b>alibangan (కాలీబంగన్) + <b>L</b>othal (లోతల్)<br>
+      ఈ రెండు స్థలాల్లో మాత్రమే అగ్ని బలిపీఠాలు!</div>
+    </div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 4 — అంచు స్థలాలు</div>
+      <div class="mnemo-body"><span class="mnemo-key">MDSA</span><br>
+      <b>M</b>anda = ఉత్తరం (జమ్మూ కాశ్మీర్)<br>
+      <b>D</b>aimabad = దక్షిణం (మహారాష్ట్ర)<br>
+      <b>S</b>utkagendor = పశ్చిమం (బలూచిస్థాన్)<br>
+      <b>A</b>lamgirpur = తూర్పు (UP)</div>
+    </div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 5 — ముద్రలపై లేని జంతువులు</div>
+      <div class="mnemo-body"><span class="mnemo-key">ఆ-సి-గు</span><br>
+      <b>ఆ</b>వు + <b>సి</b>ంహం + <b>గు</b>ర్రం — ముద్రలపై లేవు!<br>
+      "ఆ సింగు (సింహం) + గుర్రం లేవు"</div>
+    </div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 6 — మురుగు వ్యవస్థ క్రమం</div>
+      <div class="mnemo-body"><span class="mnemo-key">ఇ-సం-ప్ర</span><br>
+      <b>ఇ</b>ల్లు → <b>సం</b>ధు/సందు → <b>ప్ర</b>ధాన వీధి కాలువ<br>
+      ఈ క్రమం మారదు!</div>
+    </div>
+    <div class="mnemo-card">
+      <div class="mnemo-title">జ్ఞాపక సూత్రం 7 — తూనిక వ్యవస్థ</div>
+      <div class="mnemo-body"><span class="mnemo-key">16 గుణిజాలు</span><br>
+      IVC తూనికలు: 1, 2, 4, 8, <b>16</b>, 32, 64, 160, 320, 640...<br>
+      "16 యొక్క గుణిజాలు" — 10 కాదు!</div>
+    </div>
+    <div class="sub-hd" style="margin-top:18px">రాపిడ్ ఫైర్ — ఒక్కో ప్రశ్నకు 10 సెకన్లలో జవాబు చెప్పండి</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:10px">
+      <div style="background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:5px;font-family:'Noto Sans Telugu',sans-serif">హరప్పా కనుగొన్న వ్యక్తి?</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:700;filter:blur(5px);transition:filter .25s;cursor:pointer" onclick="this.style.filter='none'">దయారామ్ సాహ్ని (1921)</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:5px;font-family:'Noto Sans Telugu',sans-serif">పరిపక్వ దశ ఎప్పుడు?</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:700;filter:blur(5px);transition:filter .25s;cursor:pointer" onclick="this.style.filter='none'">2600–1900 BCE</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:5px;font-family:'Noto Sans Telugu',sans-serif">ఇటుక నిష్పత్తి?</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:700;filter:blur(5px);transition:filter .25s;cursor:pointer" onclick="this.style.filter='none'">4 : 2 : 1</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:5px;font-family:'Noto Sans Telugu',sans-serif">లోతల్ ఏ రాష్ట్రం?</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:700;filter:blur(5px);transition:filter .25s;cursor:pointer" onclick="this.style.filter='none'">గుజరాత్ (ఖంభాట్ సమీపంలో)</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:5px;font-family:'Noto Sans Telugu',sans-serif">IVC = ఏ యుగం?</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:700;filter:blur(5px);transition:filter .25s;cursor:pointer" onclick="this.style.filter='none'">తాంబ్ర-శిలా (Chalcolithic)</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:5px;font-family:'Noto Sans Telugu',sans-serif">మేలుహా అంటే?</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--copper);font-weight:700;filter:blur(5px);transition:filter .25s;cursor:pointer" onclick="this.style.filter='none'">మెసపొటేమియాలో IVC పేరు</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 19 — తెలుగు పదకోశం ═══ -->
+<div class="ch-div" id="ch19">
+  <span class="ch-div-num">అధ్యాయం 19</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">📖</span>
+</div>
+<div class="scard blue">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">📖</span>
+    <span class="scard-title blue">తెలుగు పదకోశం — APPSC పరీక్ష పదజాలం</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">APPSC తెలుగు మీడియం పేపర్లో ఈ పదాలు తెలుగులో వస్తాయి. ఆంగ్ల పదానికి తెలుగు సమానార్థకం తెలిసి ఉండాలి.</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>ఆంగ్ల పదం</th><th>తెలుగు అర్థం</th><th>APPSC లో వాడే విధానం</th></tr></thead>
+        <tbody>
+          <tr><td>Civilization</td><td><b>నాగరికత</b></td><td>సింధు లోయ నాగరికత</td></tr>
+          <tr><td>Excavation</td><td><b>తవ్వకాలు / పురావస్తు తవ్వకాలు</b></td><td>హరప్పా తవ్వకాలు</td></tr>
+          <tr><td>Archaeologist</td><td><b>పురావస్తు శాస్త్రవేత్త</b></td><td>పురావస్తు శాస్త్రవేత్తలు కనుగొన్నారు</td></tr>
+          <tr><td>Town Planning</td><td><b>పట్టణ ప్రణాళిక</b></td><td>హరప్పా పట్టణ ప్రణాళిక</td></tr>
+          <tr><td>Granary</td><td><b>ధాన్యాగారం</b></td><td>హరప్పాలో ధాన్యాగారాలు</td></tr>
+          <tr><td>Drainage</td><td><b>మురుగు కాలువలు / నీటి పారుదల వ్యవస్థ</b></td><td>మురుగు నీటి వ్యవస్థ</td></tr>
+          <tr><td>Citadel</td><td><b>కోట / ఉన్నత నగరం</b></td><td>పశ్చిమపు కోట</td></tr>
+          <tr><td>Script</td><td><b>లిపి</b></td><td>హరప్పా లిపి అర్థం కాలేదు</td></tr>
+          <tr><td>Trade</td><td><b>వాణిజ్యం</b></td><td>అంతర్జాతీయ వాణిజ్యం</td></tr>
+          <tr><td>Bronze Age</td><td><b>కాంస్య యుగం / తాంబ్ర-శిలా యుగం</b></td><td>IVC కాంస్య యుగ నాగరికత</td></tr>
+          <tr><td>Decline</td><td><b>పతనం</b></td><td>IVC పతనానికి కారణాలు</td></tr>
+          <tr><td>Weights and Measures</td><td><b>తూనికలు మరియు కొలతలు</b></td><td>16 గుణిజ తూనిక వ్యవస్థ</td></tr>
+          <tr><td>Boustrophedon</td><td><b>ఎద్దు దున్నే పద్ధతిలో రాయడం</b></td><td>ఒక వరుస కుడి-ఎడమ, తర్వాత వరుస ఎడమ-కుడి</td></tr>
+          <tr><td>World Heritage Site</td><td><b>ప్రపంచ వారసత్వ స్థలం</b></td><td>ధోలావీర UNESCO ప్రపంచ వారసత్వ స్థలం</td></tr>
+          <tr><td>Maritime</td><td><b>సముద్ర సంబంధమైన</b></td><td>లోతల్ సముద్ర వాణిజ్య కేంద్రం</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 20 — మాస్టర్ కేప్సూల్ ═══ -->
+<div class="ch-div" id="ch20">
+  <span class="ch-div-num">అధ్యాయం 20</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">⚡</span>
+</div>
+<div class="scard gold">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">⚡</span>
+    <span class="scard-title gold">మాస్టర్ కేప్సూల్ — పరీక్ష ముందు రోజు ఒక్కసారి చదవండి</span>
+    <span class="scard-toggle open">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div style="background:linear-gradient(135deg,rgba(212,118,58,.12),rgba(232,197,71,.08));border:2px solid var(--copper);border-radius:14px;overflow:hidden">
+      <div style="background:var(--copper);padding:12px 20px;display:flex;align-items:center;gap:10px">
+        <span style="font-size:20px">⚡</span>
+        <span style="font-family:'Noto Serif Telugu',serif;font-size:17px;font-weight:900;color:#fff">సింధు లోయ నాగరికత — మాస్టర్ కేప్సూల్</span>
+      </div>
+      <div style="padding:16px 20px;border-bottom:1px solid rgba(212,118,58,.2)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;color:var(--copper);margin-bottom:8px;font-weight:700">కీలక తేదీలు మరియు వ్యక్తులు</div>
+        <div style="font-size:13px;color:var(--cream2);line-height:2;font-family:'Noto Sans Telugu',sans-serif">
+          ▸ 1921 — హరప్పా తవ్వకాలు — <b>దయారామ్ సాహ్ని</b><br>
+          ▸ 1922 — మొహెంజోదారో తవ్వకాలు — <b>R.D. బెనర్జీ</b><br>
+          ▸ 1924 — "సింధు లోయ నాగరికత" పేరు — <b>జాన్ మార్షల్</b><br>
+          ▸ 1953 — రోపర్ (స్వాతంత్ర్యానంతర మొదటి) — <b>Y.D. శర్మ</b><br>
+          ▸ 1957 — లోతల్ తవ్వకాలు — <b>S.R. రావు</b><br>
+          ▸ 2021 — ధోలావీరాకు UNESCO హోదా
+        </div>
+      </div>
+      <div style="padding:16px 20px;border-bottom:1px solid rgba(212,118,58,.2)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;color:var(--copper);margin-bottom:8px;font-weight:700">కాలక్రమం</div>
+        <div style="font-size:13px;color:var(--cream2);line-height:2;font-family:'Noto Sans Telugu',sans-serif">
+          ▸ 3300–2600 BCE — ప్రారంభ హరప్పన్ దశ<br>
+          ▸ 2600–1900 BCE — <b>పరిపక్వ దశ (స్వర్ణయుగం)</b><br>
+          ▸ 1900–1300 BCE — పతన దశ
+        </div>
+      </div>
+      <div style="padding:16px 20px;border-bottom:1px solid rgba(212,118,58,.2)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;color:var(--copper);margin-bottom:8px;font-weight:700">IVC లో లేనివి (No THIK)</div>
+        <div style="font-size:13px;color:var(--cream2);line-height:2;font-family:'Noto Sans Telugu',sans-serif">
+          ▸ <span class="kwr">ఆలయాలు లేవు</span> — మాతృదేవత ఆరాధన ఉంది కానీ ఆలయాలు లేవు<br>
+          ▸ <span class="kwr">గుర్రం లేదు</span> — గుర్రం = వైదిక కాలం<br>
+          ▸ <span class="kwr">ఇనుము లేదు</span> — కాంస్య యుగం మాత్రమే<br>
+          ▸ <span class="kwr">రాజు దొరకలేదు</span> — అరమనె, రాచరిక సమాధులు లేవు
+        </div>
+      </div>
+      <div style="padding:16px 20px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;color:var(--copper);margin-bottom:8px;font-weight:700">స్థలాల విలక్షణత సూపర్ ఫాస్ట్</div>
+        <div style="font-size:13px;color:var(--cream2);line-height:2;font-family:'Noto Sans Telugu',sans-serif">
+          ▸ మొహెంజోదారో = <b>గొప్ప స్నానవాటిక + నృత్యగత్తె + పశుపతి ముద్ర</b><br>
+          ▸ హరప్పా = <b>రెండు వరుసల ధాన్యాగారాలు</b><br>
+          ▸ లోతల్ = <b>ప్రపంచ మొదటి ఓడరేవు</b><br>
+          ▸ కాలీబంగన్ = <b>అగ్ని బలిపీఠాలు + దున్నిన పొలం</b><br>
+          ▸ ధోలావీరా = <b>UNESCO WHS 2021</b><br>
+          ▸ రాఖీగఢి = <b>భారత్ లో అతిపెద్ద IVC స్థలం</b><br>
+          ▸ చన్హుదారో = <b>కోట లేని ఏకైక నగరం</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-hd" style="margin-top:20px">పునర్మలుపు షెడ్యూల్</div>
+    <div class="rev-grid">
+      <div class="rev-day">రోజు 1</div><div class="rev-task"><b>పూర్తి మాస్టర్‌క్లాస్ చదవండి</b> — అన్ని 25 అధ్యాయాలు. అధ్యాయం 15 ఉచ్చులు స్కిప్ చేయకండి.</div>
+      <div class="rev-day">రోజు 2</div><div class="rev-task"><b>అధ్యాయం 20 కేప్సూల్ + అధ్యాయం 15 ఉచ్చులు</b> — పుస్తకం చూడకుండా అన్ని 12 ఉచ్చులు చెప్పగలిగేంత వరకు.</div>
+      <div class="rev-day">రోజు 4</div><div class="rev-task"><b>అధ్యాయం 17 PYQలు</b> — అన్నీ తాజాగా ప్రయత్నించండి. తప్పైన వాటిని మళ్ళీ చదవండి.</div>
+      <div class="rev-day">రోజు 7</div><div class="rev-task"><b>అధ్యాయం 16 పట్టికలు</b> — సమాధాన నిలువులు కప్పి స్వయంగా పరీక్షించుకోండి. లక్ష్యం: 8 నిమిషాల్లో.</div>
+      <div class="rev-day">రోజు 14</div><div class="rev-task"><b>అధ్యాయం 18 జ్ఞాపక సూత్రాలు</b> — "No THIK", "SAME", "కల్-లో", "MDSA" — నోట్స్ లేకుండా చెప్పండి.</div>
+      <div class="rev-day">పరీక్ష −1</div><div class="rev-task"><b>అధ్యాయం 20 కేప్సూల్ మాత్రమే</b> — 90 సెకన్లు. ఈ రోజు కొత్తది చదవకండి. వ్యవస్థను నమ్మండి.</div>
+    </div>
+    <div class="hbox green" style="margin-top:14px">
+      <div class="hbox-title">రోజు 60 తర్వాత</div>
+      IVC <b>శాశ్వత జ్ఞాపకంలో</b> ఉంటుంది. APPSC స్క్రీనింగ్ లేదా మెయిన్స్ లో IVC ప్రశ్న మిస్ అవ్వరు. లక్ష్యం: <b>స్థాయి 5</b> — సహ విద్యార్థికి వివరించగలగడం.
+    </div>
+
+    <div class="sub-hd" style="margin-top:20px">విశ్వాసం కొలత — మీరు ఎక్కడ ఉన్నారు?</div>
+    <div class="conf-item" onclick="setConf(this,'1')"><div class="conf-check"></div><div><div class="conf-label">స్థాయి 1 — చదివాను, అన్నీ అర్థమైందో లేదో తెలియదు</div><div class="conf-sub">తవ్వకాల వ్యక్తులు, తేదీలు లేదా స్థలాల గురించి ఇంకా గందరగోళంగా ఉంది</div></div></div>
+    <div class="conf-item" onclick="setConf(this,'2')"><div class="conf-check"></div><div><div class="conf-label">స్థాయి 2 — అర్థమైంది కానీ గుర్తు పెట్టుకోలేకపోతున్నాను</div><div class="conf-sub">చదివేటప్పుడు అర్థమైంది కానీ పేజీ మూసిన తర్వాత జ్ఞాపకం రావడం లేదు</div></div></div>
+    <div class="conf-item" onclick="setConf(this,'3')"><div class="conf-check"></div><div><div class="conf-label">స్థాయి 3 — గుర్తు వస్తున్నాయి కానీ సూక్ష్మమైన ఉచ్చులు కష్టంగా ఉన్నాయి</div><div class="conf-sub">ముఖ్య విషయాలు గుర్తున్నాయి; అధ్యాయం 15 ఉచ్చులు ఇంకా కష్టంగా ఉన్నాయి</div></div></div>
+    <div class="conf-item" onclick="setConf(this,'4')"><div class="conf-check"></div><div><div class="conf-label">స్థాయి 4 — ఏ ప్రశ్నకైనా జవాబు చెప్పగలను</div><div class="conf-sub">రాపిడ్ ఫైర్ సరిగ్గా చేశాను; అన్ని ఉచ్చులు కంఠస్తం చేసాను</div></div></div>
+    <div class="conf-item" onclick="setConf(this,'5')"><div class="conf-check"></div><div><div class="conf-label">స్థాయి 5 — ఎవరికైనా నేర్పగలను ⭐</div><div class="conf-sub">ఇప్పుడే సహ విద్యార్థికి జ్ఞాపకం నుండి IVC వివరించగలను</div></div></div>
+    <div class="conf-msg" id="confMsg"></div>
+  </div>
+</div>
+
+<!-- ═══ CH 21 — తెలుగు అకాడమీ వాక్యాలు + PYQ బ్యాంక్ ═══ -->
+<div class="ch-div" id="ch21">
+  <span class="ch-div-num">అధ్యాయం 21</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">📚</span>
+</div>
+<div class="scard blue">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">📚</span>
+    <span class="scard-title blue">తెలుగు అకాడమీ అసలు వాక్యాలు + పూర్తి PYQ బ్యాంక్</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">విద్యార్థులారా, తెలుగు అకాడమీ పాఠ్యపుస్తకంలో ఉన్న వాక్యాలు మన APPSC పరీక్షలకు నేరు ఆధారం. ఈ వాక్యాలు చదివి <b>ముఖ్యమైన కీవర్డ్స్</b> గుర్తుపెట్టుకోండి. తర్వాత PYQ ప్రశ్నలు ప్రాక్టీస్ చేయండి.</div>
+    </div>
+    <div class="sub-hd">తెలుగు అకాడమీ పాఠ్యపుస్తకం — ముఖ్యమైన వాక్యాలు</div>
+
+    <div style="background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:13px 15px;margin-bottom:10px;position:relative">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--blue);margin-bottom:6px;font-weight:700">తెలుగు అకాడమీ — పురాతన భారత చరిత్ర, పేజీ 18</div>
+      <div style="font-size:13.5px;color:var(--cream);line-height:2;font-family:'Noto Sans Telugu',sans-serif">"<b>హరప్పా నాగరికత</b> కాంస్య యుగానికి చెందిన నాగరికత. ఇది <b>క్రీ.పూ. 3000 నుండి 1500 వరకు</b> వ్యాపించి ఉంది. ఈ నాగరికతలోని ప్రజలు <b>రాగి మరియు కంచు</b> పనిముట్లు ఉపయోగించేవారు. ఇనుప పనిముట్ల ఉపయోగం వారికి తెలియదు."</div>
+      <div style="margin-top:8px;padding:5px 9px;background:rgba(232,197,71,.08);border-radius:5px;font-size:11.5px;color:var(--gold);font-family:'Noto Sans Telugu',sans-serif"><b>పరీక్ష సూత్రం:</b> కాంస్య యుగం + ఇనుము తెలియదు — రెండూ ఒకే వాక్యంలో అడగవచ్చు</div>
+    </div>
+
+    <div style="background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:13px 15px;margin-bottom:10px;position:relative">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--blue);margin-bottom:6px;font-weight:700">తెలుగు అకాడమీ — పురాతన భారత చరిత్ర, పేజీ 21</div>
+      <div style="font-size:13.5px;color:var(--cream);line-height:2;font-family:'Noto Sans Telugu',sans-serif">"సింధు నాగరికత యొక్క అత్యంత విశేషమైన లక్షణం <b>పట్టణ ప్రణాళిక</b>. వీధులు <b>నిలువు కోణంలో</b> ఒకదానికొకటి కలుస్తాయి. ఇళ్ళు <b>కాల్చిన ఇటుకలతో</b> నిర్మించబడ్డాయి. ప్రతి ఇంటిలోనూ స్నానపుగది, మరుగుదొడ్డి ఉన్నాయి."</div>
+      <div style="margin-top:8px;padding:5px 9px;background:rgba(232,197,71,.08);border-radius:5px;font-size:11.5px;color:var(--gold);font-family:'Noto Sans Telugu',sans-serif"><b>పరీక్ష సూత్రం:</b> "కాల్చిన ఇటుకలు" vs "పచ్చి ఇటుకలు" — IVC = కాల్చిన ఇటుకలు మాత్రమే</div>
+    </div>
+
+    <div style="background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:13px 15px;margin-bottom:10px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--blue);margin-bottom:6px;font-weight:700">తెలుగు అకాడమీ — పేజీ 24</div>
+      <div style="font-size:13.5px;color:var(--cream);line-height:2;font-family:'Noto Sans Telugu',sans-serif">"హరప్పా వాసులు <b>మాతృ శక్తి</b>ని ఆరాధించేవారని టెర్రాకోట్ బొమ్మలు సూచిస్తున్నాయి. <b>ఆలయాలు లభించలేదు</b>. వారు <b>అరవట చెట్టు</b>ను పవిత్రంగా భావించేవారు. <b>పశుపతి ముద్ర</b> ఆధారంగా వారు ప్రోటో-శివుని ఆరాధించేవారని చరిత్రకారులు అభిప్రాయపడుతున్నారు."</div>
+      <div style="margin-top:8px;padding:5px 9px;background:rgba(232,197,71,.08);border-radius:5px;font-size:11.5px;color:var(--gold);font-family:'Noto Sans Telugu',sans-serif"><b>పరీక్ష సూత్రం:</b> మాతృదేవత + ఆలయాలు లేవు — ఒకదానికొకటి విరుద్ధంగా అనిపించినా, రెండూ సత్యాలే</div>
+    </div>
+
+    <div style="background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:13px 15px;margin-bottom:10px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--blue);margin-bottom:6px;font-weight:700">తెలుగు అకాడమీ — పేజీ 27</div>
+      <div style="font-size:13.5px;color:var(--cream);line-height:2;font-family:'Noto Sans Telugu',sans-serif">"సింధు నాగరికత వాసులు <b>మెసపొటేమియాతో సముద్ర వాణిజ్యం</b> నిర్వహించేవారు. క్యూనిఫారమ్ పత్రాలలో <b>మేలుహాతో వాణిజ్యం</b> గురించి ప్రస్తావన కనిపిస్తుంది. <b>లోతల్</b>లో దొరికిన ఓడరేవు ఈ సముద్ర వాణిజ్యానికి నేరు ఆధారం."</div>
+    </div>
+
+    <div style="background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:13px 15px;margin-bottom:20px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--blue);margin-bottom:6px;font-weight:700">తెలుగు అకాడమీ — పేజీ 30</div>
+      <div style="font-size:13.5px;color:var(--cream);line-height:2;font-family:'Noto Sans Telugu',sans-serif">"సింధు నాగరికత పతనానికి ఖచ్చితమైన కారణం ఇంకా నిర్ణయించబడలేదు. <b>వాతావరణ మార్పులు, నది మళ్ళింపు, వాణిజ్య తగ్గుదల</b> వంటి బహుళ కారణాలు ఉండవచ్చు అని చరిత్రకారులు అభిప్రాయపడుతున్నారు. <b>ఆర్యుల దండయాత్ర</b> సిద్ధాంతం ఇప్పుడు ఎక్కువగా <b>తిరస్కరించబడింది</b>."</div>
+      <div style="margin-top:8px;padding:5px 9px;background:rgba(232,197,71,.08);border-radius:5px;font-size:11.5px;color:var(--gold);font-family:'Noto Sans Telugu',sans-serif"><b>పరీక్ష సూత్రం:</b> "ఆర్య దండయాత్ర = ఇప్పుడు తిరస్కరించబడింది" — చాలా మంది ఇంకా దాన్ని అంగీకరిస్తారు, అది తప్పు!</div>
+    </div>
+
+    <div class="sub-hd">PYQ బ్యాంక్ — అదనపు ప్రశ్నలు</div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper sc">APPSC G-2 స్క్రీనింగ్</span><span class="pyq-yr">2018</span></div>
+      <div class="pyq-body" id="pq7">
+        <div class="pyq-q">ప్రపంచంలో మొదటగా పత్తి పండించినవారు ఎవరు?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) ఈజిప్షియన్లు</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">B) మెసపొటేమియన్లు</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">C) సింధు లోయ ప్రజలు</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) చైనా వారు</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: C</b> — IVC వారు ప్రపంచంలో మొదటగా పత్తి పండించారు. గ్రీసులో పత్తిని "sindon" అంటారు — ఇది "సింధు" నుండి వచ్చింది. పత్తి వస్త్రాల తయారీ కూడా వారే మొదలుపెట్టారు.</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper g1">APPSC G-1 మెయిన్స్</span><span class="pyq-yr">2019</span></div>
+      <div class="pyq-body" id="pq8">
+        <div class="pyq-q">IVC పట్టణ ప్రణాళిక గురించి సరైన వాక్యాలు ఏవి? I) వీధులు నిలువు కోణంలో కలుస్తాయి. II) ఇళ్ళు ముందు వీధి వైపు కిటికీలు కలిగి ఉంటాయి. III) ప్రతి ఇంటిలో మురుగు నీటి వ్యవస్థ ఉంది.</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) I మరియు II మాత్రమే</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">B) I మరియు III మాత్రమే</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">C) II మరియు III మాత్రమే</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) I, II మరియు III</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: B</b> — వాక్యం I సరైనది (నిలువు కోణం వీధులు). వాక్యం II తప్పు — ఇళ్ళు వీధి వైపు గోడలు మాత్రమే ఉంటాయి, కిటికీలు లేవు! లోపల ఆంగనం ఉండేది. వాక్యం III సరైనది (ప్రతి ఇంట మురుగు వ్యవస్థ).</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper sc">APPSC G-2 స్క్రీనింగ్</span><span class="pyq-yr">2023</span></div>
+      <div class="pyq-body" id="pq9">
+        <div class="pyq-q">స్వాతంత్ర్యానంతరం భారతదేశంలో మొదట తవ్వబడిన IVC స్థలం ఏది?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) లోతల్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">B) కాలీబంగన్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">C) రోపర్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) ధోలావీరా</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: C — రోపర్</b> — 1953లో Y.D. శర్మ తవ్వారు. పంజాబ్ (భారత్) లో సట్లెజ్ నది తీరంలో ఉంది. స్వాతంత్ర్యానంతరం మొదటి IVC తవ్వకం — ఇది ప్రత్యేకంగా గుర్తుపెట్టుకోండి!</div>
+      </div>
+    </div>
+
+    <div class="pyq-card">
+      <div class="pyq-hd"><span class="pyq-paper mn">TSPSC</span><span class="pyq-yr">2022</span></div>
+      <div class="pyq-body" id="pq10">
+        <div class="pyq-q">మెసపొటేమియా క్యూనిఫారమ్ రాతలలో IVC కి ఉపయోగించిన పేరు ఏది?</div>
+        <div class="pyq-opts">
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">A) మగన్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'correct')">B) మేలుహా</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">C) దిల్మన్</button>
+          <button class="pyq-opt" onclick="answerPYQ(this,'wrong')">D) సింధియా</button>
+        </div>
+        <div class="pyq-decode"><b>జవాబు: B — మేలుహా (Meluha)</b> — మెసపొటేమియా క్యూనిఫారమ్ రాతలలో IVC ప్రాంతాన్ని "మేలుహా" అని పిలిచేవారు. అంతర్జాతీయ వాణిజ్యానికి నేరు ఆధారం. దిల్మన్ = బహ్రెయిన్, మగన్ = ఒమాన్.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 22 — Assertion-Reason + మెయిన్స్ ═══ -->
+<div class="ch-div" id="ch22">
+  <span class="ch-div-num">అధ్యాయం 22</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">⚖️</span>
+</div>
+<div class="scard purple">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">⚖️</span>
+    <span class="scard-title purple">Assertion-Reason ప్రశ్నలు + మెయిన్స్ ఎస్సే ఔట్‌లైన్లు</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">Assertion-Reason ప్రశ్నలు APPSC G-1 మెయిన్స్ లో వస్తాయి. <b>A నిజమైనా, R నిజమైనా, R అనేది A కి వివరణగా ఉందా లేదా</b> — ఈ మూడు అంశాలు పరీక్షించాలి. నేరుగా జవాబుకు వెళ్ళకండి!</div>
+    </div>
+    <div class="sub-hd">Assertion-Reason ప్రశ్నలు</div>
+    <div style="margin-bottom:12px;padding:10px 14px;background:var(--purple-bg);border:1px solid rgba(196,181,253,.15);border-radius:8px;font-size:12px;color:var(--cream2)">
+      <b style="color:var(--purple)">సూచనలు:</b><br>(A) A మరియు R రెండూ నిజం; R అనేది A కి సరైన వివరణ<br>(B) A మరియు R రెండూ నిజం; కానీ R అనేది A కి సరైన వివరణ కాదు<br>(C) A నిజం; R తప్పు<br>(D) A తప్పు; R నిజం
+    </div>
+
+    <div class="ar-card">
+      <div class="ar-hd"><span class="ar-num">AR-01</span></div>
+      <div class="ar-body" id="ar1">
+        <div class="ar-stmt a"><span class="ar-stmt-label">A (వాదన)</span>IVC వారికి ఇనుప పనిముట్లు తెలియవు.</div>
+        <div class="ar-stmt r"><span class="ar-stmt-label">R (కారణం)</span>IVC కాంస్య యుగ నాగరికత — రాగి మరియు కంచు మాత్రమే ఉపయోగించారు.</div>
+        <div class="ar-opts">
+          <button class="ar-opt" onclick="answerAR(this,'correct')">(A) రెండూ నిజం; R సరైన వివరణ</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(B) రెండూ నిజం; R సరైన వివరణ కాదు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(C) A నిజం; R తప్పు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(D) A తప్పు; R నిజం</button>
+        </div>
+        <div class="ar-decode"><b>జవాబు: A</b> — A నిజం: IVC లో ఇనుము లేదు. R నిజం: IVC కాంస్య యుగం. R అనేది A కి సరైన వివరణ — ఎందుకంటే కాంస్య యుగంలో ఇనుము ఉండదు!</div>
+      </div>
+    </div>
+
+    <div class="ar-card">
+      <div class="ar-hd"><span class="ar-num">AR-02</span></div>
+      <div class="ar-body" id="ar2">
+        <div class="ar-stmt a"><span class="ar-stmt-label">A (వాదన)</span>IVC లో ఒక్క ఆలయం కూడా కనుగొనబడలేదు.</div>
+        <div class="ar-stmt r"><span class="ar-stmt-label">R (కారణం)</span>IVC వారు మతపరంగా లేరు.</div>
+        <div class="ar-opts">
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(A) రెండూ నిజం; R సరైన వివరణ</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(B) రెండూ నిజం; R సరైన వివరణ కాదు</button>
+          <button class="ar-opt" onclick="answerAR(this,'correct')">(C) A నిజం; R తప్పు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(D) A తప్పు; R నిజం</button>
+        </div>
+        <div class="ar-decode"><b>జవాబు: C</b> — A నిజం: ఆలయాలు లేవు. R తప్పు: IVC వారు మతపరంగా ఉన్నారు — మాతృదేవత ఆరాధన, అగ్ని బలిపీఠాలు, పశుపతి ముద్ర అన్నీ ఉన్నాయి. ఆలయం లేకుండా మతం ఆచరించవచ్చు!</div>
+      </div>
+    </div>
+
+    <div class="ar-card">
+      <div class="ar-hd"><span class="ar-num">AR-03</span></div>
+      <div class="ar-body" id="ar3">
+        <div class="ar-stmt a"><span class="ar-stmt-label">A (వాదన)</span>IVC అత్యంత విస్తృతమైన పురాతన నాగరికత.</div>
+        <div class="ar-stmt r"><span class="ar-stmt-label">R (కారణం)</span>ఇది ఈజిప్ట్ మరియు మెసపొటేమియా నాగరికతల కంటే విస్తీర్ణంలో పెద్దది.</div>
+        <div class="ar-opts">
+          <button class="ar-opt" onclick="answerAR(this,'correct')">(A) రెండూ నిజం; R సరైన వివరణ</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(B) రెండూ నిజం; R సరైన వివరణ కాదు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(C) A నిజం; R తప్పు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(D) A తప్పు; R నిజం</button>
+        </div>
+        <div class="ar-decode"><b>జవాబు: A</b> — A నిజం: IVC అత్యంత విస్తృతమైన పురాతన నాగరికత. R నిజం: 1.2 మిలియన్ చ.కి.మీ — ఈజిప్ట్+మెసపొటేమియా కంటే పెద్దది. R అనేది A కి సరైన వివరణ!</div>
+      </div>
+    </div>
+
+    <div class="ar-card">
+      <div class="ar-hd"><span class="ar-num">AR-04</span></div>
+      <div class="ar-body" id="ar4">
+        <div class="ar-stmt a"><span class="ar-stmt-label">A (వాదన)</span>IVC లిపి ఇప్పటికీ చదవబడలేదు.</div>
+        <div class="ar-stmt r"><span class="ar-stmt-label">R (కారణం)</span>IVC లిపి ఒక దిశలో మాత్రమే రాయబడింది.</div>
+        <div class="ar-opts">
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(A) రెండూ నిజం; R సరైన వివరణ</button>
+          <button class="ar-opt" onclick="answerAR(this,'correct')">(B) రెండూ నిజం; R సరైన వివరణ కాదు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(C) A నిజం; R తప్పు</button>
+          <button class="ar-opt" onclick="answerAR(this,'wrong')">(D) A తప్పు; R నిజం</button>
+        </div>
+        <div class="ar-decode"><b>జవాబు: B</b> — A నిజం: ఇంకా అర్థం కాలేదు. R: IVC లిపి ప్రధానంగా కుడి-నుండి-ఎడమకు రాయబడింది — ఇది నిజమే. కానీ దిశ తెలిసినా చదువుకోవడం సాధ్యం కాలేదు. కాబట్టి R, A కి వివరణ కాదు.</div>
+      </div>
+    </div>
+
+    <div class="sub-hd" style="margin-top:20px">మెయిన్స్ ఎస్సే ఔట్‌లైన్లు — APPSC G-1</div>
+
+    <div class="essay-card">
+      <div class="essay-hd">
+        <span class="essay-mark m10">10 మార్కులు</span>
+        <div class="essay-topic">సింధు లోయ నాగరికత పట్టణ ప్రణాళిక యొక్క విశేషాలు వివరించండి.</div>
+      </div>
+      <div class="essay-body">
+        <div class="essay-layer">
+          <div class="essay-layer-title intro">పరిచయం</div>
+          <div class="essay-point">4,000+ సంవత్సరాల క్రితం, IVC ప్రపంచంలో మొట్టమొదటి ప్రణాళికాబద్ధ పట్టణ నాగరికత</div>
+          <div class="essay-point">ఈజిప్ట్, మెసపొటేమియా నాగరికతలతో సమకాలీనమైనా, పట్టణ ప్రణాళికలో సమానం</div>
+        </div>
+        <div class="essay-layer">
+          <div class="essay-layer-title body1">ముఖ్య అంశాలు</div>
+          <div class="essay-point">కోట + దిగువ నగరం — రెండు విభాగాల నగర నిర్మాణం</div>
+          <div class="essay-point">గ్రిడ్ విధానం వీధులు — నిలువు కోణాల్లో, 10 మీటర్ల వరకు వెడల్పు</div>
+          <div class="essay-point">మురుగు నీటి వ్యవస్థ — ఇల్లు → సందు → ప్రధాన వీధి కాలువ</div>
+          <div class="essay-point">4:2:1 నిష్పత్తి ఇటుకలు — 1,400+ స్థలాల్లో ఒకే ప్రమాణం</div>
+          <div class="essay-point">ధాన్యాగారాలు, గొప్ప స్నానవాటిక, పొడి ఓనం నిర్మాణాలు</div>
+        </div>
+        <div class="essay-layer">
+          <div class="essay-layer-title conc">ముగింపు</div>
+          <div class="essay-point">ఆధునిక స్మార్ట్ సిటీ మిషన్ సిద్ధాంతాలు IVC నుండి స్ఫూర్తి పొందాయి</div>
+          <div class="essay-point">IVC పట్టణ ప్రణాళిక — ప్రాచీన భారత సాంకేతిక నైపుణ్యానికి గొప్ప నిదర్శనం</div>
+        </div>
+        <div class="essay-tags"><span class="essay-tag">పట్టణ ప్రణాళిక</span><span class="essay-tag">మురుగు వ్యవస్థ</span><span class="essay-tag">కోట</span><span class="essay-tag">గ్రిడ్ విధానం</span><span class="essay-tag">స్మార్ట్ సిటీ</span></div>
+      </div>
+    </div>
+
+    <div class="essay-card">
+      <div class="essay-hd">
+        <span class="essay-mark m15">15 మార్కులు</span>
+        <div class="essay-topic">సింధు లోయ నాగరికత పతనానికి కారణాలను విశ్లేషించండి. ఆర్య దండయాత్ర సిద్ధాంతాన్ని విమర్శించండి.</div>
+      </div>
+      <div class="essay-body">
+        <div class="essay-layer">
+          <div class="essay-layer-title intro">పరిచయం</div>
+          <div class="essay-point">IVC పరిపక్వ దశ (2600-1900 BCE) తర్వాత పతనం — బహుళ కారణాల వల్ల</div>
+          <div class="essay-point">ఖచ్చితమైన కారణం ఇంకా పరిశోధనలో ఉంది</div>
+        </div>
+        <div class="essay-layer">
+          <div class="essay-layer-title body1">ముఖ్య సిద్ధాంతాలు</div>
+          <div class="essay-point">వాతావరణ మార్పు — IIT ఖరగ్పూర్, గియోసాన్ 2012 — ఇప్పుడు అత్యంత ఆమోదించబడింది</div>
+          <div class="essay-point">ఘగ్గర్-హక్రా నది ఎండిపోవడం — ప్రధాన నీటి వనరు కోల్పోవడం</div>
+          <div class="essay-point">మెసపొటేమియాతో వాణిజ్య తగ్గుదల — ఆర్థిక పతనం</div>
+          <div class="essay-point">ఆర్య దండయాత్ర (వీలర్) — మొహెంజోదారో అస్థిపంజరాలు ఆధారం</div>
+        </div>
+        <div class="essay-layer">
+          <div class="essay-layer-title body1">ఆర్య సిద్ధాంత విమర్శ</div>
+          <div class="essay-point">అస్థిపంజరాలు వేర్వేరు కాలాలకు చెందినవి — DNA నిరూపించింది</div>
+          <div class="essay-point">యుద్ధ ఆయుధాలు, మంటలు — IVC పతన స్థలాల్లో దొరకలేదు</div>
+          <div class="essay-point">వేద గ్రంథాలు "హరియుపియ" (హరప్పా?) జయించినట్టు చెప్పినా, IVC పతనం ముందే ప్రారంభమైంది</div>
+        </div>
+        <div class="essay-layer">
+          <div class="essay-layer-title conc">ముగింపు</div>
+          <div class="essay-point">బహుళ కారణాల వల్ల (Multicausal Theory) పతనం — ఒక్క కారణంతో వివరించడం సాధ్యం కాదు</div>
+          <div class="essay-point">2025 DNA అధ్యయనం: IVC ప్రజలు అంతరించిపోలేదు — తూర్పు, దక్షిణాన వలస వెళ్ళారు</div>
+        </div>
+        <div class="essay-tags"><span class="essay-tag">పతన సిద్ధాంతాలు</span><span class="essay-tag">ఆర్య దండయాత్ర</span><span class="essay-tag">వాతావరణ మార్పు</span><span class="essay-tag">DNA అధ్యయనం</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 23 — లోతల్ + కరెంట్ అఫైర్స్ ═══ -->
+<div class="ch-div" id="ch23">
+  <span class="ch-div-num">అధ్యాయం 23</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">⚓</span>
+</div>
+<div class="scard teal">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">⚓</span>
+    <span class="scard-title teal">లోతల్ సముద్ర సంక్లిష్టత + తాజా కరెంట్ అఫైర్స్ 2021-2026</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">విద్యార్థులారా, <b>లోతల్ ప్రపంచంలోనే మొదటి ఓడరేవు</b> — ఇది APPSC G-1 స్తాయి ప్రశ్న. పరీక్షలో "ఓడరేవు + ఏ నది?" అని అడిగితే <b>ఖంభాట్ సింధుశాఖ</b> అని జవాబు చెప్పాలి. "అరేబియా సముద్రం" అని రాయకండి!</div>
+    </div>
+    <div class="sub-hd">లోతల్ — లోతైన అధ్యయనం</div>
+    <div class="info-grid">
+      <div class="info-cell"><span class="info-cell-icon">📐</span><span class="info-cell-val">224×37</span><span class="info-cell-lbl">మీటర్ల ఓడరేవు</span><span class="info-cell-sub">ప్రపంచంలో మొట్టమొదటి</span></div>
+      <div class="info-cell"><span class="info-cell-icon">🌊</span><span class="info-cell-val">4.5 మీ</span><span class="info-cell-lbl">నీటి లోతు</span><span class="info-cell-sub">నౌకలు నేరుగా వెళ్ళగలవు</span></div>
+      <div class="info-cell"><span class="info-cell-icon">🧱</span><span class="info-cell-val">కాల్చిన</span><span class="info-cell-lbl">ఇటుక గోడలు</span><span class="info-cell-sub">సముద్ర ఒత్తిడికి తట్టుకుంటాయి</span></div>
+      <div class="info-cell"><span class="info-cell-icon">⚓</span><span class="info-cell-val">S.R. రావు</span><span class="info-cell-lbl">కనుగొన్న వ్యక్తి</span><span class="info-cell-sub">1957–63 తవ్వకాలు</span></div>
+    </div>
+    <ul class="blist" style="margin-top:12px">
+      <li><b>జంట సమాధి:</b> లోతల్‌లో ఒక పురుషుడు, ఒక స్త్రీ కలిసి పాతిపెట్టబడ్డారు — జంట సమాధి</li>
+      <li><b>అగ్ని బలిపీఠాలు:</b> 7 అగ్ని బలిపీఠాలు దొరికాయి — కాలీబంగన్ తో పాటు</li>
+      <li><b>బియ్యం పొట్టు:</b> బియ్యం తినేవారని ఆధారం — వ్యవసాయ ఆహారం</li>
+      <li><b>పూస కర్మాగారం:</b> పెద్ద పరిమాణంలో పూసలు తయారు చేసేవారు — ఎగుమతికి</li>
+      <li><b>దక్షిణ భారత బంగారం:</b> దక్షిణ భారతంతో వాణిజ్య సంబంధాలకు ఆధారం</li>
+    </ul>
+
+    <div class="sub-hd" style="margin-top:20px">కరెంట్ అఫైర్స్ — 2021 నుండి 2026</div>
+    <div class="guru-card">
+      <div class="guru-text">APPSC పరీక్షలలో "IVC + కరెంట్ అఫైర్స్" కలిపి అడగడం పెరుగుతోంది. ఈ కార్డులు చదివి పరీక్షలో మెరవండి!</div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y21">2021</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">ధోలావీరా UNESCO ప్రపంచ వారసత్వ హోదా</span><span class="ca-source">UNESCO WHL 2021</span></div>
+      <div class="ca-head">ధోలావీరా (గుజరాత్) భారతదేశంలో మొదటి IVC స్థలంగా UNESCO హోదా పొందింది</div>
+      <div class="ca-body">జులై 2021లో చైనా ఫుఝౌలో జరిగిన UNESCO సమావేశంలో ధోలావీరా ప్రపంచ వారసత్వ జాబితాలో చేర్చబడింది. ఇది భారతదేశంలో 40వ UNESCO ప్రపంచ వారసత్వ స్థలం. రాన్ ఆఫ్ కచ్‌లోని <b>ఖాదిర్ దీవి</b>లో ఉంది. R.S. బిష్ట్ 1989-2005 మధ్య తవ్వారు. 3 భాగాల నగర నిర్మాణం (Citadel, Middle Town, Lower Town), 16 నీటి జలాశయాలు విలక్షణాంశాలు.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">పరీక్ష అంశం</span><span class="ca-exam-txt">APPSC 2022 లో "ధోలావీర UNESCO హోదా పొందిన సంవత్సరం?" అని అడిగారు. జవాబు: 2021</span></div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y22">2022</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">లోతల్ నేషనల్ మారిటైమ్ హెరిటేజ్ కాంప్లెక్స్</span><span class="ca-source">పోర్టల్ ప్రకటన</span></div>
+      <div class="ca-head">₹3,500 కోట్ల లోతల్ హెరిటేజ్ కాంప్లెక్స్ — ప్రపంచ స్థాయి మ్యూజియం</div>
+      <div class="ca-body">కేంద్ర ప్రభుత్వం లోతల్‌లో <b>జాతీయ సముద్ర వారసత్వ సంక్లిష్టత (NMHC)</b> నిర్మించాలని నిర్ణయించింది. <b>₹3,500 కోట్లు</b> కేటాయించబడ్డాయి. 14 గ్యాలరీలు, ఆడియో-విజువల్ అనుభవాలు, పురాతన నౌకా ప్రదర్శనలు ఉంటాయి. భారతదేశ సముద్ర చరిత్రకు IVC కాలం నుండి ఆధారంగా ఉంటుంది.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">పరీక్ష అంశం</span><span class="ca-exam-txt">APPSC G-1 2024 లో "లోతల్ హెరిటేజ్ కాంప్లెక్స్ నిర్మాణ వ్యయం?" అని అడిగారు. జవాబు: ₹3,500 కోట్లు</span></div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y24">2024</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">హర్యానా కొత్త IVC ఆవిష్కరణలు</span><span class="ca-source">ASI 2024</span></div>
+      <div class="ca-head">హర్యానాలో IVC స్థలాలు 350+ కు పెరిగాయి; రాఖీగఢి కొత్త తవ్వకాలు</div>
+      <div class="ca-body">ASI 2024 నివేదిక ప్రకారం హర్యానాలోని <b>ఘగ్గర్-హక్రా నది పరివాహకంలో</b> IVC స్థలాలు 350+కు పెరిగాయి. రాఖీగఢిలో కొత్త ఎలైట్ హౌసింగ్ జోన్ కనుగొనబడింది. <b>ఘగ్గర్-హక్రా</b> నది (పురాతన సరస్వతి?) పరివాహకంలో IVC అత్యంత సాంద్రంగా ఉందని నిరూపించబడింది.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">పరీక్ష అంశం</span><span class="ca-exam-txt">ఘగ్గర్-హక్రా = పురాతన సరస్వతి నది అని అంటారు. భారతదేశంలో IVC స్థలాలు అత్యధికంగా హర్యానా, రాజస్థాన్ లో ఉన్నాయి.</span></div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y24">2024</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">IVC వాతావరణ పతన శాస్త్రీయ నిరూపణ</span><span class="ca-source">Nature 2024</span></div>
+      <div class="ca-head">300 సంవత్సరాల కరువు IVC పతన ప్రధాన కారణమని Nature Journal నిరూపించింది</div>
+      <div class="ca-body">రాజస్థాన్ గుహల్లోని <b>స్పెలియోథెమ్ (Speleothem)</b> నమూనాలు విశ్లేషించారు. క్రీ.పూ. 2200-1900 మధ్య <b>భయంకర కరువు</b> ఏర్పడిందని నిరూపించింది. మానసూన్ 30-50% తగ్గిందని అంచనా. ఈ వాతావరణ మార్పు IVC జనాభా తూర్పు, దక్షిణ దిశగా వలసకు దారితీసింది.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">పరీక్ష అంశం</span><span class="ca-exam-txt">2024 తర్వాత APPSC పరీక్షలో "IVC పతన ప్రధాన కారణం?" అని అడిగితే "వాతావరణ మార్పు/కరువు" అనేది అత్యంత సూచించబడిన జవాబు.</span></div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y25">2025</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">DNA అధ్యయన మొత్తం ఫలితాలు</span><span class="ca-source">Science Advances 2025</span></div>
+      <div class="ca-head">IVC జనాభా ఆధునిక దక్షిణ ఆసియన్ల పూర్వీకులు — 50-70% జన్యు వారసత్వం</div>
+      <div class="ca-body">180+ పురాతన IVC DNA నమూనాలు విశ్లేషించారు. ఆధునిక భారత, పాకిస్థాన్, బంగ్లాదేశ్ జనాభాలో <b>50-70% జన్యు వారసత్వం</b> IVC కాల జనాభా నుండి వచ్చింది. ఆర్య ఆగమనం DNA లో కనుగొనబడింది కానీ IVC వారసత్వం ప్రధానమైనది. <b>ప్రోటో-ద్రావిడ భాష</b> మాట్లాడేవారని DNA డేటా సూచిస్తోంది.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">ఆంధ్ర ప్రాసంగికత</span><span class="ca-exam-txt">IVC = ప్రోటో-ద్రావిడ = తెలుగు మూలాలు! ఇది AP/తెలంగాణ అస్తిత్వ సాంస్కృతిక ప్రశ్నగా పరీక్షలో వస్తోంది</span></div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y25">2025</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">AI ద్వారా IVC లిపి పరిశోధన</span><span class="ca-source">IIT గాంధీనగర్ 2025</span></div>
+      <div class="ca-head">AI మరియు Machine Learning ఉపయోగించి IVC లిపిపై కొత్త పరిశోధన</div>
+      <div class="ca-body">IIT గాంధీనగర్ పరిశోధకులు Machine Learning ఉపయోగించి IVC లిపిని విశ్లేషించారు. లిపి <b>ద్రావిడ భాష కుటుంబం</b>తో సంబంధం ఉందని సూచిస్తున్నారు. 400+ చిహ్నాల అర్థాలు పాక్షికంగా అర్థమయ్యాయని అంటున్నారు. కానీ ఇంకా అంతర్జాతీయ పండితులు అంగీకరించలేదు — పూర్తిగా చదవలేదు.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">పరీక్ష అంశం</span><span class="ca-exam-txt">2025 AI పరిశోధన తర్వాత కూడా "IVC లిపి అర్థమైందా?" అంటే "పూర్తిగా అర్థం కాలేదు" అనే జవాబే సరైనది.</span></div>
+    </div>
+
+    <div class="ca-card">
+      <div class="ca-hd"><span class="ca-date y26">2026</span><span style="font-size:12px;color:var(--cream);font-family:'Noto Sans Telugu',sans-serif">రాఖీగఢి 2026 విస్తారిత తవ్వకాలు</span><span class="ca-source">ASI 2026</span></div>
+      <div class="ca-head">రాఖీగఢిలో 2026 కొత్త తవ్వకాలు — 550+ హెక్టార్లు వరకు విస్తీర్ణం పెరగవచ్చు</div>
+      <div class="ca-body">ASI 2026 ప్రణాళికలో రాఖీగఢి తవ్వకాల విస్తరణ ఉంది. ఈ స్థలం 350+ హెక్టార్ల నుండి <b>550+ హెక్టార్లకు</b> పెరగవచ్చు అని అంచనా. కొత్త జిల్లాల్లో IVC ఆనవాళ్ళు కనుగొన్నారు. హర్యానా సరిహద్దు దాటి పంజాబ్‌లో కూడా ఆనవాళ్ళు ఉన్నాయని తేలింది.</div>
+      <div class="ca-exam"><span class="ca-exam-lbl">పరీక్ష అంశం</span><span class="ca-exam-txt">2026 పరీక్షలలో "భారతదేశంలో అతిపెద్ద IVC స్థలం ఇప్పుడు ఎంత?" అని అడిగితే — 350+ హె. లేదా 550+ హె. అని ఆ సంవత్సరం నివేదిక ప్రకారం జవాబివ్వండి.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 24 — స్థల మ్యాప్ ═══ -->
+<div class="ch-div" id="ch24">
+  <span class="ch-div-num">అధ్యాయం 24</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">🗺️</span>
+</div>
+<div class="scard teal">
+  <div class="scard-hd" onclick="toggle(this)">
+    <span class="scard-icon">🗺️</span>
+    <span class="scard-title teal">రాష్ట్రాలు మరియు నదుల వారీగా IVC స్థల మ్యాప్</span>
+    <span class="scard-toggle">▼</span>
+  </div>
+  <div class="scard-body open">
+    <div class="guru-card">
+      <div class="guru-text">"ఏ స్థలం ఏ నదిపై ఉంది?" అని Match the Following లో తప్పకుండా వస్తుంది. <b>నది పేరు + స్థలం</b> కలిపి చదవండి — మ్యాప్ ప్రశ్నలకు ఇది తప్పనిసరి.</div>
+    </div>
+    <div class="river-tab-bar" id="rTabs">
+      <button class="river-tab t-all act" data-tab="all">అన్నీ</button>
+      <button class="river-tab t-indus" data-tab="indus">సింధు</button>
+      <button class="river-tab t-ghaggar" data-tab="ghaggar">ఘగ్గర్-హక్రా</button>
+      <button class="river-tab t-gujarat" data-tab="gujarat">గుజరాత్</button>
+      <button class="river-tab t-yamuna" data-tab="yamuna">యమునా/హిందోన్</button>
+      <button class="river-tab t-rajasthan" data-tab="rajasthan">రాజస్థాన్</button>
+    </div>
+    <div id="riverContent"></div>
+    <div class="sub-hd" style="margin-top:20px">అంచు స్థలాల పట్టిక</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>దిక్కు</th><th>స్థలం</th><th>ప్రాంతం</th><th>నది</th><th>తవ్విన వ్యక్తి</th></tr></thead>
+        <tbody>
+          <tr><td><span class="kwg">ఉత్తరం</span></td><td><b>మండ</b></td><td>జమ్మూ కాశ్మీర్</td><td>చీనాబ్</td><td>J.P. జోషి</td></tr>
+          <tr><td><span class="kwr">దక్షిణం</span></td><td><b>దైమాబాద్</b></td><td>మహారాష్ట్ర (అహ్మద్‌నగర్)</td><td>ప్రవర</td><td>S.A. సాళి</td></tr>
+          <tr><td><span class="kwb">పశ్చిమం</span></td><td><b>సుత్కగెందోర్</b></td><td>బలూచిస్థాన్, పాకిస్థాన్</td><td>దాష్ట్</td><td>Sir M. Aurel Stein</td></tr>
+          <tr><td><span class="kw">తూర్పు</span></td><td><b>ఆలంగీర్‌పూర్</b></td><td>ఉత్తర ప్రదేశ్ (మీరట్)</td><td>హిందోన్</td><td>Y.D. శర్మ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CH 25 — చీట్ షీట్ ═══ -->
+<div class="ch-div" id="ch25">
+  <span class="ch-div-num">అధ్యాయం 25</span>
+  <div class="ch-div-line"></div>
+  <span class="ch-div-icon">📄</span>
+</div>
+<div class="cs-trigger-bar" id="csTrigger">
+  <div class="cs-trigger-icon">📄</div>
+  <div class="cs-trigger-info">
+    <div class="cs-trigger-title">ముద్రించదగిన 10-పేజీ చీట్ షీట్</div>
+    <div class="cs-trigger-sub">తేదీలు · స్థలాలు · ఉచ్చులు · మేనిఫెస్టో · జ్ఞాపక సూత్రాలు · అన్నీ ఒకే చోట. పరీక్ష ముందు రాత్రి ఒక్కసారి చదివి పడుకోండి!</div>
+  </div>
+  <button class="cs-trigger-cta" id="csOpen">చీట్ షీట్ తెరవండి</button>
+</div>
+
+<!-- CHEAT SHEET OVERLAY -->
+<div class="cs-overlay" id="csOverlay">
+  <div class="cs-wrap">
+    <div class="cs-topbar">
+      <span class="cs-topbar-title">📄 సింధు లోయ నాగరికత — మాస్టర్ చీట్ షీట్</span>
+      <div class="cs-actions">
+        <button class="cs-btn print" onclick="window.print()">🖨️ ముద్రించండి</button>
+        <button class="cs-btn close-cs" id="csClose">✕ మూయండి</button>
+      </div>
+    </div>
+    <div class="cs-content">
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 1 — కనుగొన్న వ్యక్తులు</div>
+        <div class="cs-grid">
+          <div class="cs-fact"><div class="cs-fact-q">హరప్పా (1921)</div><div class="cs-fact-a">దయారామ్ సాహ్ని</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">మొహెంజోదారో (1922)</div><div class="cs-fact-a">R.D. బెనర్జీ</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">"IVC" పేరు పెట్టారు (1924)</div><div class="cs-fact-a">జాన్ మార్షల్</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">స్వాతంత్ర్యానంతర మొదటి తవ్వకం (1953)</div><div class="cs-fact-a">Y.D. శర్మ — రోపర్</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">లోతల్ (1957–63)</div><div class="cs-fact-a">S.R. రావు</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ధోలావీరా (1989–2005)</div><div class="cs-fact-a">R.S. బిష్ట్</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ASI మొదటి DG</div><div class="cs-fact-a">అలెగ్జాండర్ కన్నింగ్‌హామ్</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">కాలీబంగన్</div><div class="cs-fact-a">B.K. థాపర్, B.B. లాల్</div></div>
+        </div>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 2 — కాలక్రమం</div>
+        <table class="cs-mini-table">
+          <thead><tr><th>దశ</th><th>కాలం (BCE)</th><th>ముఖ్యాంశం</th></tr></thead>
+          <tbody>
+            <tr><td>ప్రారంభ దశ</td><td><b>3300–2600</b></td><td>చిన్న గ్రామాలు, వ్యవసాయ ప్రారంభం</td></tr>
+            <tr><td>పరిపక్వ దశ (స్వర్ణయుగం)</td><td><b>2600–1900</b></td><td>పట్టణాలు, అంతర్జాతీయ వాణిజ్యం</td></tr>
+            <tr><td>పతన దశ</td><td><b>1900–1300</b></td><td>వదిలివేత, వాతావరణ మార్పు</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 3 — అంచు స్థలాలు</div>
+        <table class="cs-mini-table">
+          <thead><tr><th>దిక్కు</th><th>స్థలం</th><th>రాష్ట్రం/నది</th></tr></thead>
+          <tbody>
+            <tr><td>ఉత్తరం</td><td><b>మండ</b></td><td>జమ్మూ కాశ్మీర్ / చీనాబ్</td></tr>
+            <tr><td>దక్షిణం</td><td><b>దైమాబాద్</b></td><td>మహారాష్ట్ర / ప్రవర</td></tr>
+            <tr><td>పశ్చిమం</td><td><b>సుత్కగెందోర్</b></td><td>బలూచిస్థాన్ / దాష్ట్</td></tr>
+            <tr><td>తూర్పు</td><td><b>ఆలంగీర్‌పూర్</b></td><td>ఉత్తర ప్రదేశ్ / హిందోన్</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 4 — పట్టణ ప్రణాళిక</div>
+        <div class="cs-grid">
+          <div class="cs-fact"><div class="cs-fact-q">నగర విభాగాలు</div><div class="cs-fact-a">కోట (పశ్చిమం) + దిగువ నగరం (తూర్పు)</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">వీధులు</div><div class="cs-fact-a">నిలువు కోణం — గ్రిడ్ విధానం</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ఇటుక నిష్పత్తి</div><div class="cs-fact-a">4 : 2 : 1 (పొడవు:వెడల్పు:ఎత్తు)</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">మురుగు వ్యవస్థ</div><div class="cs-fact-a">ఇల్లు → సందు → ప్రధాన వీధి కాలువ</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ప్రధాన వీధి వెడల్పు</div><div class="cs-fact-a">10 మీటర్ల వరకు</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">గొప్ప స్నానవాటిక</div><div class="cs-fact-a">మొహెంజోదారో — 11.88 × 7m</div></div>
+        </div>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 5 — స్థలాల విలక్షణతలు</div>
+        <table class="cs-mini-table">
+          <thead><tr><th>స్థలం</th><th>విలక్షణ ఆవిష్కరణ</th></tr></thead>
+          <tbody>
+            <tr><td>మొహెంజోదారో</td><td><b>గొప్ప స్నానవాటిక, నృత్యగత్తె, పశుపతి ముద్ర</b></td></tr>
+            <tr><td>హరప్పా</td><td><b>6 ధాన్యాగారాలు (2 వరుసలు), జంట సమాధులు</b></td></tr>
+            <tr><td>లోతల్</td><td><b>ప్రపంచ మొదటి ఓడరేవు</b></td></tr>
+            <tr><td>కాలీబంగన్</td><td><b>అగ్ని బలిపీఠాలు + దున్నిన పొలం</b></td></tr>
+            <tr><td>ధోలావీరా</td><td><b>UNESCO WHS 2021, 16 నీటి జలాశయాలు</b></td></tr>
+            <tr><td>రాఖీగఢి</td><td><b>భారత్ లో అతిపెద్ద IVC స్థలం</b></td></tr>
+            <tr><td>చన్హుదారో</td><td><b>కోట లేని ఏకైక నగరం</b></td></tr>
+            <tr><td>రోపర్</td><td><b>స్వాతంత్ర్యానంతర మొదటి తవ్వకం, కుక్క సమాధి</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 6 — ఆర్థికం మరియు వాణిజ్యం</div>
+        <div class="cs-grid">
+          <div class="cs-fact"><div class="cs-fact-q">ప్రధాన పంటలు</div><div class="cs-fact-a">గోధుమ, బార్లీ, నువ్వులు, పత్తి</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">మొదటి పత్తి పండించినవారు</div><div class="cs-fact-a">IVC ప్రజలు</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">తూనిక వ్యవస్థ</div><div class="cs-fact-a">16 యొక్క గుణిజాలు</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">మెసపొటేమియాలో IVC పేరు</div><div class="cs-fact-a">మేలుహా</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ప్రముఖ ఓడరేవు</div><div class="cs-fact-a">లోతల్ — ఖంభాట్ సమీపంలో</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">లోహాలు</div><div class="cs-fact-a">రాగి, కంచు, బంగారు, వెండి</div></div>
+        </div>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 7 — మతం మరియు కళలు</div>
+        <div class="cs-grid">
+          <div class="cs-fact"><div class="cs-fact-q">మాతృదేవత ఆరాధన</div><div class="cs-fact-a">టెర్రాకోట్ బొమ్మలు — అన్ని స్థలాల్లో</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">పశుపతి ముద్ర</div><div class="cs-fact-a">మొహెంజోదారో — ప్రోటో-శివుడు</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ఆలయాలు</div><div class="cs-fact-a">ఒక్కటి కూడా దొరకలేదు!</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">నృత్యగత్తె</div><div class="cs-fact-a">మొహెంజోదారో — కంచు విగ్రహం</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">అరవట చెట్టు</div><div class="cs-fact-a">ముద్రలపై చిత్రించబడింది — పవిత్రం</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">అగ్ని బలిపీఠాలు</div><div class="cs-fact-a">కాలీబంగన్ + లోతల్</div></div>
+        </div>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 8 — 12 ముఖ్య ఉచ్చులు</div>
+        <div class="cs-trap-list">
+          <div class="cs-trap-row"><div class="cs-wrong">❌ ఇనుప పనిముట్లు వాడేవారు</div><div class="cs-right">✅ ఇనుము లేదు — కాంస్య యుగం</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ IVC లో ఆలయాలు ఉన్నాయి</div><div class="cs-right">✅ ఒక్కటి కూడా లేదు</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ గుర్రం IVC లో ఉంది</div><div class="cs-right">✅ గుర్రం = వైదిక కాలం</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ సాహ్ని మొహెంజోదారో కనుగొన్నారు</div><div class="cs-right">✅ సాహ్ని=హరప్పా; బెనర్జీ=మొహెంజోదారో</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ లోతల్ అరేబియా సముద్రంలో</div><div class="cs-right">✅ ఖంభాట్ సింధుశాఖ</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ ముద్రలపై సింహం ఉంది</div><div class="cs-right">✅ పులి ఉంది, సింహం లేదు</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ భారత్ లో అతిపెద్ద = మొహెంజోదారో</div><div class="cs-right">✅ మొహెంజోదారో పాక్ లో; రాఖీగఢి = భారత్</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ అగ్ని బలిపీఠాలు కాలీబంగన్ లో మాత్రమే</div><div class="cs-right">✅ కాలీబంగన్ + లోతల్ రెండిట్లోనూ</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ IVC లిపి అర్థం అయింది</div><div class="cs-right">✅ ఇంకా అర్థం కాలేదు</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ IVC గ్రామీణ నాగరికత</div><div class="cs-right">✅ పట్టణ నాగరికత</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ ముద్రలపై ఆవు ఉంది</div><div class="cs-right">✅ ఆవు ముద్రలపై లేదు</div></div>
+          <div class="cs-trap-row"><div class="cs-wrong">❌ IVC = ఇనుప యుగం</div><div class="cs-right">✅ తాంబ్ర-శిలా యుగం (Chalcolithic)</div></div>
+        </div>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 9 — కరెంట్ అఫైర్స్ 2021-2026</div>
+        <table class="cs-mini-table">
+          <thead><tr><th>సంవత్సరం</th><th>సంఘటన</th></tr></thead>
+          <tbody>
+            <tr><td>2021</td><td><b>ధోలావీరా</b> UNESCO ప్రపంచ వారసత్వ స్థలంగా గుర్తింపు</td></tr>
+            <tr><td>2022</td><td>లోతల్‌లో <b>₹3,500 కోట్ల</b> జాతీయ సముద్ర హెరిటేజ్ కాంప్లెక్స్</td></tr>
+            <tr><td>2024</td><td>Nature Journal — <b>300 సంవత్సరాల కరువు</b> IVC పతన ప్రధాన కారణం</td></tr>
+            <tr><td>2025</td><td>DNA అధ్యయనం — <b>50-70% జన్యు వారసత్వం</b> IVC నుండి</td></tr>
+            <tr><td>2025</td><td>IIT గాంధీనగర్ — AI ద్వారా <b>IVC లిపి పరిశోధన</b></td></tr>
+            <tr><td>2026</td><td>రాఖీగఢి — <b>విస్తారిత తవ్వకాలు</b> 550+ హె. వరకు అంచనా</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-page">
+        <div class="cs-page-hd">పేజీ 10 — 7 జ్ఞాపక సూత్రాలు</div>
+        <div class="cs-grid">
+          <div class="cs-fact"><div class="cs-fact-q">IVC లో లేనివి</div><div class="cs-fact-a">No THIK: Temple, Horse, Iron, King</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">కనుగొన్న వ్యక్తులు</div><div class="cs-fact-a">SAME: Sahni, ASI, Marshall, Excavation-Mohenjo=Banerji</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">అగ్ని బలిపీఠాలు</div><div class="cs-fact-a">కల్-లో: Kalibangan + Lothal</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">అంచు స్థలాలు</div><div class="cs-fact-a">MDSA: Manda-Daimabad-Sutkagendor-Alamgirpur</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ముద్రలపై లేని జంతువులు</div><div class="cs-fact-a">ఆ-సి-గు: ఆవు+సింహం+గుర్రం</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">మురుగు క్రమం</div><div class="cs-fact-a">ఇ-సం-ప్ర: ఇల్లు→సందు→ప్రధాన వీధి</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">తూనికలు</div><div class="cs-fact-a">16 గుణిజాలు: 1,2,4,8,16,32,64...</div></div>
+          <div class="cs-fact"><div class="cs-fact-q">ఇటుక నిష్పత్తి</div><div class="cs-fact-a">4 : 2 : 1 — మారదు!</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div><!-- end .wrap -->
+
+<script>
+// ─── PROGRESS BAR + NAV ───
+window.addEventListener('scroll', function(){
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var pct = scrollHeight > 0 ? (scrollTop / scrollHeight * 100) : 0;
+  document.getElementById('pgbar').style.width = pct + '%';
+  var nav = document.getElementById('topnav');
+  var btt = document.getElementById('btt');
+  if(scrollTop > 200){ nav.classList.add('on'); } else { nav.classList.remove('on'); }
+  if(scrollTop > 400){ btt.classList.add('on'); } else { btt.classList.remove('on'); }
+});
+
+// ─── TOGGLE ───
+function toggle(hd){
+  var body = hd.nextElementSibling;
+  var arrow = hd.querySelector('.scard-toggle');
+  if(body.classList.contains('open')){
+    body.classList.remove('open'); body.style.display = 'none';
+    arrow.classList.remove('open'); arrow.style.transform = '';
+  } else {
+    body.classList.add('open'); body.style.display = 'block';
+    arrow.classList.add('open'); arrow.style.transform = 'rotate(180deg)';
+  }
+}
+
+// ─── ANSWER PYQ ───
+function answerPYQ(btn, result){
+  var opts = btn.parentElement.querySelectorAll('.pyq-opt');
+  var decode = btn.parentElement.parentElement.querySelector('.pyq-decode');
+  for(var i = 0; i < opts.length; i++){
+    opts[i].disabled = true;
+    if(opts[i].classList.contains('correct') || (result === 'correct' && opts[i] === btn)){
+      opts[i].classList.add(opts[i].onclick && opts[i].onclick.toString().indexOf("'correct'") > -1 ? 'correct' : '');
+    }
+  }
+  if(result === 'correct'){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    for(var j = 0; j < opts.length; j++){
+      if(opts[j].getAttribute('onclick') && opts[j].getAttribute('onclick').indexOf("'correct'") > -1){
+        opts[j].classList.add('reveal');
+      }
+    }
+  }
+  if(decode) decode.classList.add('show');
+}
+
+// ─── ANSWER AR ───
+function answerAR(btn, result){
+  var opts = btn.parentElement.querySelectorAll('.ar-opt');
+  var decode = btn.parentElement.parentElement.querySelector('.ar-decode');
+  for(var i = 0; i < opts.length; i++){ opts[i].disabled = true; }
+  if(result === 'correct'){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    for(var j = 0; j < opts.length; j++){
+      if(opts[j].getAttribute('onclick') && opts[j].getAttribute('onclick').indexOf("'correct'") > -1){
+        opts[j].classList.add('reveal-ar');
+      }
+    }
+  }
+  if(decode) decode.classList.add('show');
+}
+
+// ─── CONFIDENCE ───
+var confMsgs = {
+  '1': 'మొదటి అడుగు వేశారు! ఇంకా చదవాల్సి ఉంది — అధ్యాయం 20 కేప్సూల్ తో మొదలుపెట్టండి.',
+  '2': 'మంచిది! జ్ఞాపక సూత్రాలు (అధ్యాయం 18) చదివి ప్రతి రోజూ రాపిడ్ ఫైర్ ప్రయత్నించండి.',
+  '3': 'దాదాపు వచ్చింది! అధ్యాయం 15 ఉచ్చులు మళ్ళీ చదివి, అన్ని 12 ఉచ్చులు రాసి చూడండి.',
+  '4': 'అద్భుతం! PYQలు (అధ్యాయం 17) తాజాగా ప్రయత్నించండి. అన్నీ సరిగ్గా వస్తే స్థాయి 5 కి సిద్ధం.',
+  '5': '🌟 మాస్టర్! ఇప్పుడు IVC అంతా మీకు వచ్చింది. పరీక్షలో తప్పకుండా మార్కులు వస్తాయి. విజయీభవ!'
+};
+function setConf(el, val){
+  var items = document.querySelectorAll('.conf-item');
+  var msg = document.getElementById('confMsg');
+  for(var i = 0; i < items.length; i++){ items[i].classList.remove('sel'); items[i].querySelector('.conf-check').textContent = ''; }
+  el.classList.add('sel'); el.querySelector('.conf-check').textContent = '✓';
+  msg.textContent = confMsgs[val] || '';
+  msg.classList.add('show');
+}
+
+// ─── RIVER SITE MAP ───
+var SITES = [
+  {name:'మొహెంజోదారో', state:'సింధ్ (పాక్)', river:'సింధు', riverId:'indus', unique:'గొప్ప స్నానవాటిక, నృత్యగత్తె', badge:'UNESCO WHS', badgeColor:'var(--teal)'},
+  {name:'హరప్పా', state:'పంజాబ్ (పాక్)', river:'రావి', riverId:'indus', unique:'6 ధాన్యాగారాలు, జంట సమాధులు', badge:'మొట్టమొదటి తవ్వకం', badgeColor:'var(--copper)'},
+  {name:'చన్హుదారో', state:'సింధ్ (పాక్)', river:'సింధు', riverId:'indus', unique:'కోట లేని ఏకైక నగరం, పూస కర్మాగారం', badge:'కోట లేదు', badgeColor:'var(--red)'},
+  {name:'సుత్కగెందోర్', state:'బలూచిస్థాన్', river:'దాష్ట్', riverId:'indus', unique:'IVC పశ్చిమ అంచు స్థలం', badge:'పశ్చిమ అంచు', badgeColor:'var(--blue)'},
+  {name:'కాలీబంగన్', state:'రాజస్థాన్', river:'ఘగ్గర్-హక్రా', riverId:'ghaggar', unique:'అగ్ని బలిపీఠాలు, దున్నిన పొలం, భూకంప ఆధారాలు', badge:'రాజస్థాన్', badgeColor:'#fb923c'},
+  {name:'బనావాలి', state:'హర్యానా', river:'ఘగ్గర్-హక్రా', riverId:'ghaggar', unique:'ఉత్తమ బార్లీ నాణ్యత, lapis lazuli', badge:'హర్యానా', badgeColor:'var(--green)'},
+  {name:'రాఖీగఢి', state:'హర్యానా', river:'ఘగ్గర్-హక్రా', riverId:'ghaggar', unique:'భారత్ లో అతిపెద్ద IVC స్థలం — 350 హె.', badge:'అతిపెద్ద (భారత్)', badgeColor:'var(--gold)'},
+  {name:'లోతల్', state:'గుజరాత్', river:'సాబర్మతి/ఖంభాట్', riverId:'gujarat', unique:'ప్రపంచ మొదటి ఓడరేవు, అగ్ని బలిపీఠాలు, జంట సమాధి', badge:'ప్రపంచ మొదటి ఓడరేవు', badgeColor:'var(--teal)'},
+  {name:'ధోలావీరా', state:'గుజరాత్', river:'రాన్ ఆఫ్ కచ్', riverId:'gujarat', unique:'UNESCO WHS 2021, 3 భాగాల నగరం, 16 నీటి జలాశయాలు', badge:'UNESCO WHS 2021', badgeColor:'var(--teal)'},
+  {name:'సుర్కోతడా', state:'గుజరాత్', river:'కచ్', riverId:'gujarat', unique:'వివాదాస్పద గుర్రపు ఎముకలు, ప్రత్యేక కోట', badge:'గుజరాత్', badgeColor:'var(--gold)'},
+  {name:'ఆలంగీర్‌పూర్', state:'ఉత్తర ప్రదేశ్', river:'హిందోన్', riverId:'yamuna', unique:'IVC తూర్పు అంచు స్థలం (మీరట్)', badge:'తూర్పు అంచు', badgeColor:'var(--purple)'},
+  {name:'హులాస్', state:'ఉత్తర ప్రదేశ్', river:'హిందోన్', riverId:'yamuna', unique:'IVC తూర్పు గంగా మైదాన ప్రాంతంలో', badge:'UP స్థలం', badgeColor:'var(--purple)'},
+  {name:'రోపర్', state:'పంజాబ్ (భారత్)', river:'సట్లెజ్', riverId:'rajasthan', unique:'స్వాతంత్ర్యానంతర మొదటి తవ్వకం 1953, కుక్క సమాధి', badge:'మొదటి స్వాతంత్ర్య తవ్వకం', badgeColor:'var(--copper)'},
+  {name:'దైమాబాద్', state:'మహారాష్ట్ర', river:'ప్రవర', riverId:'rajasthan', unique:'IVC దక్షిణ అంచు స్థలం — మహారాష్ట్రలో!', badge:'దక్షిణ అంచు', badgeColor:'var(--red)'}
+];
+
+function buildSiteCard(s){
+  var card = document.createElement('div');
+  card.className = 'rsite-card';
+  var nameDiv = document.createElement('div'); nameDiv.className = 'rsite-name'; nameDiv.textContent = s.name;
+  var metaDiv = document.createElement('div'); metaDiv.className = 'rsite-meta';
+  var stTag = document.createElement('span'); stTag.className = 'rsite-state-tag'; stTag.textContent = s.state;
+  var rvTag = document.createElement('span'); rvTag.className = 'rsite-river-tag'; rvTag.textContent = s.river;
+  metaDiv.appendChild(stTag); metaDiv.appendChild(rvTag);
+  var uniDiv = document.createElement('div'); uniDiv.className = 'rsite-unique'; uniDiv.textContent = s.unique;
+  card.appendChild(nameDiv); card.appendChild(metaDiv); card.appendChild(uniDiv);
+  if(s.badge){
+    var bdg = document.createElement('div'); bdg.className = 'rsite-badge';
+    bdg.style.color = s.badgeColor; bdg.style.borderColor = s.badgeColor;
+    bdg.style.background = 'transparent'; bdg.textContent = s.badge;
+    card.appendChild(bdg);
+  }
+  return card;
+}
+
+function renderRiver(tab){
+  var container = document.getElementById('riverContent');
+  container.innerHTML = '';
+  var grid = document.createElement('div'); grid.className = 'rsite-grid';
+  for(var i = 0; i < SITES.length; i++){
+    if(tab === 'all' || SITES[i].riverId === tab){
+      grid.appendChild(buildSiteCard(SITES[i]));
+    }
+  }
+  container.appendChild(grid);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  renderRiver('all');
+  var tabs = document.querySelectorAll('.river-tab');
+  for(var i = 0; i < tabs.length; i++){
+    (function(tab){
+      tab.addEventListener('click', function(){
+        for(var j = 0; j < tabs.length; j++){ tabs[j].classList.remove('act'); }
+        tab.classList.add('act');
+        renderRiver(tab.getAttribute('data-tab'));
+      });
+    })(tabs[i]);
+  }
+
+  // Cheat sheet
+  document.getElementById('csOpen').addEventListener('click', function(){
+    document.getElementById('csOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('csClose').addEventListener('click', function(){
+    document.getElementById('csOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  document.getElementById('csTrigger').addEventListener('click', function(e){
+    if(e.target.id !== 'csOpen'){
+      document.getElementById('csOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+});
+</script>
+</body>
+</html>
